@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 const MyHome = ({ navigate }) => {
 
+
   return (
     <h1>Welcome to your home page</h1>
   )
