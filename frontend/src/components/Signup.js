@@ -13,10 +13,16 @@ const Signup = ({ navigate }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: { email: email, password: password, username: username }
+      body: JSON.stringify({ email: email, password: password, username: username })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        if (data.message === "OK") {
+          console.log("success");
+        } else {
+          console.log("server error");
+        }
+      })
   }
 
   const handleEmail = (event) => {
@@ -40,7 +46,7 @@ const Signup = ({ navigate }) => {
     <input type="password" onChange={handlePassword} />
     <label>Username:</label>
     <input type="text" onChange={handleUsername} />
-    <button>Sign up</button>
+    <button onClick={createUser}>Sign up</button>
     </div>
   )
 }
