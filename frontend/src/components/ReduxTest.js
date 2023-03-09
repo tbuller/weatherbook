@@ -7,7 +7,7 @@ const ReduxTest = () => {
 
   return (
     <div>
-    {users.users && users.users.map(u => <div>{u.email}</div>)}
+    {users && users.map(u => <div>{u.email}</div>)}
     </div>
   )
 }

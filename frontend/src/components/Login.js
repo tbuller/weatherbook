@@ -1,22 +1,23 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { setUsers } from '../redux/usersSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Login = ({ navigate }) => {
 
   
+  const dispatch = useDispatch();
   const users = useSelector(state => state.users.users);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [users, setUsers] = useState([]);
   const [incorrect, setIncorrect] = useState(false);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8080/users")
-  //     .then(response => response.json())
-  //     .then(data => setUsers(data.users))
-  // }, [])
+  useEffect(() => {
+    fetch("http://localhost:8080/users")
+      .then(response => response.json())
+      .then(data => dispatch(setUsers(data.users)))
+  }, [])
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -50,7 +51,7 @@ const Login = ({ navigate }) => {
     <input type="password" onChange={handlePassword} />
     <button onClick={handleLogin}>Log in</button>
     {incorrect && <div>Wrong username or password, please try again or sign up</div>}
-    {users.users && users.users.map(u => <div key={u._id}>{u.username}</div>)}
+    {users && users.map(u => <div key={u._id}>{u.username}</div>)}
     <button onClick={showUsers}>show users</button>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUsers } from '../redux/usersSlice';
+import { setUsers, addUser } from '../redux/usersSlice';
 import ReduxTest from './ReduxTest';
 
 const Signup = ({ navigate }) => {
@@ -18,7 +18,7 @@ const Signup = ({ navigate }) => {
   useEffect(() => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
-      .then(data => dispatch(setUsers(data)))
+      .then(data => dispatch(setUsers(data.users)))
   }, [])
 
   const createUser = () => {
@@ -33,7 +33,8 @@ const Signup = ({ navigate }) => {
       .then(data => {
         if (data.message === "OK") {
           console.log("success");
-          navigate("/login");
+          dispatch(addUser(data.user));
+          // navigate("/login");
         } else if (data.message === "email already in use") {
           setUsernameDuplicate(false);
           setEmailDuplicate(true);
@@ -74,8 +75,9 @@ const Signup = ({ navigate }) => {
     <button onClick={createUser}>Sign up</button>
     {emailDuplicate && <div>email already used to sign up, please log in to continue</div>}
     {usernameDuplicate && <div>username already is use, please choose another username or log in if you have already created an account</div>}
-    {users.users && users.users.map(u => <div key={u._id}>{u.username}</div>)}
+    {users && users.map(u => <div key={u._id}>{u.username}</div>)}
     <ReduxTest />
+    <button onClick={showUsers}>show users</button>
     </div>
   )
 }
