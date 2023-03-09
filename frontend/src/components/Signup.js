@@ -6,6 +6,8 @@ const Signup = ({ navigate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [emailDuplicate, setEmailDuplicate] = useState(false);
+  const [usernameDuplicate, setUsernameDuplicate] = useState(false);
 
   const createUser = () => {
     fetch("http://localhost:8080/users", {
@@ -19,6 +21,13 @@ const Signup = ({ navigate }) => {
       .then(data => {
         if (data.message === "OK") {
           console.log("success");
+          navigate("/login");
+        } else if (data.message === "email already in use") {
+          setUsernameDuplicate(false);
+          setEmailDuplicate(true);
+        } else if (data.message === "username already in use") {
+          setEmailDuplicate(false);
+          setUsernameDuplicate(true);
         } else {
           console.log("server error");
         }
@@ -47,6 +56,8 @@ const Signup = ({ navigate }) => {
     <label>Username:</label>
     <input type="text" onChange={handleUsername} />
     <button onClick={createUser}>Sign up</button>
+    {emailDuplicate && <div>email already used to sign up, please log in to continue</div>}
+    {usernameDuplicate && <div>username already is use, please choose another username or log in if you have already created an account</div>}
     </div>
   )
 }
