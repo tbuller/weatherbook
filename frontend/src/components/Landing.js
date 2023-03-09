@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const Landing = () => {
+const Landing = (navigate) => {
 
   return (
     <div>Hello world</div>
