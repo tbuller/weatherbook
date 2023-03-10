@@ -16,10 +16,12 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
   }
 
   const createPost = () => {
+
     const body = {
       posterId: localStorage.getItem("userId"),
       thoughts: thoughts,
       city: selectedCity,
+      time: time,
     };
 
     if (rainIncluded) {
@@ -41,15 +43,21 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
       body.cloudcover = cloudcover;
     }
 
-    fetch("http://localhost:8080/users", {
+    fetch("http://localhost:8080/posts", {
       method: "post",
       headers: {
         "Content-Type" : "application/json"
       },
-      body: body
+      body: JSON.stringify(body)
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        if (data.message === "OK") {
+          console.log(data.post);
+        } else {
+          console.log(data.message);
+        }
+      })
   }
 
   return (
