@@ -1,7 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPosts, addPost } from '../redux/postsSlice';
 
 const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, cloudcover, selectedCity, time }) => {
+
+  const dispatch = useDispatch();
+  const posts = useSelector(state => state.posts)
 
   const [rainIncluded, setRainIncluded] = useState(false);
   const [temperatureIncluded, setTemperatureIncluded] = useState(false);
@@ -53,9 +58,11 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
       .then(response => response.json())
       .then(data => {
         if (data.message === "OK") {
-          console.log(data.post);
+          dispatch(addPost(data.post));
+          console.log("post added");
         } else {
           console.log(data.message);
+          console.log(data.err);
         }
       })
   }
