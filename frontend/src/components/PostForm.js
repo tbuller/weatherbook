@@ -63,19 +63,13 @@ const PostForm = () => {
     {weatherData.time && weatherData.time.map((time, index) => 
       <button key={index} value={index} onClick={handleTime}>{new Date(time).toLocaleTimeString()}</button>
       )}
-    {/* <div className="data-container">
-    <div>Rain: {weatherData.rain && weatherData.rain[time]}mm</div>
-    <div>Temperature: {weatherData.temperature_2m && weatherData.temperature_2m[time]}°C</div>
-    <div>Precipitation probability: {weatherData.precipitation_probability && weatherData.precipitation_probability[time]}%</div>
-    <div>windspeed: {weatherData.windspeed_10m && weatherData.windspeed_10m[time]}</div>
-    </div>  */}
     <WeatherInfo 
     rain={weatherData.rain?.[time]}
     temperature={weatherData.temperature_2m?.[time]} 
     precipitation={weatherData.precipitation_probability?.[time]}
     windspeed={weatherData.windspeed_10m?.[time]}
     radiation={weatherData.shortwave_radiation_instant?.[time]}
-    cloudover={weatherData.cloudover?.[time]}
+    cloudcover={weatherData.cloudcover?.[time]}
     />
     </div>
   )
