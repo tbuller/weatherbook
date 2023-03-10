@@ -5,18 +5,28 @@ import { useState, useEffect } from 'react';
 const PostForm = () => {
 
   const [selectedCity, setSelectedCity] = useState();
+  const [lat, setLat] = useState("");
+  const [long, setLong] = useState("");
 
-  const getData = () => {
-    console.log(selectedCity);
-  }
+  useEffect(() => {
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity}`) 
+      .then(response => response.json())
+      .then(data => {
+        const city = data[0];
+        setLat(parseFloat(city.lat));
+        setLong(parseFloat(city.lon));
+      })
+  }, [selectedCity])
+
+  useEffect(() => {
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m,precipitation_probability,precipitation,rain,windspeed_10m&forecast_days=1`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }, [lat, long])
 
   const handleSelectedCity = (event) => {
     setSelectedCity(event.target.value);
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity}`)
-      .then(response => response.json())
-      .then(data => console.log(data))
   }
-
 
   return (
     <div>
@@ -29,7 +39,7 @@ const PostForm = () => {
       <option value="Manchester">Manchester</option>
       <option value="Rome">Rome</option>
     </select>
-    <button onClick={getData}>get data</button>
+    <button>get data</button>
     </div>
 
   )
