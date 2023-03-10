@@ -9,7 +9,7 @@ const PostForm = () => {
   const [long, setLong] = useState("");
   const [weatherData, setWeatherData] = useState([]);
   const [time, setTime] = useState(0);
-  const [showConditions, setShowConditions] = useState(true);
+  const [showConditions, setShowConditions] = useState(false);
   const isFirstRender = useRef(true);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ const PostForm = () => {
 
   const handleTime = (event) => {
     setTime(event.target.value);
+    setShowConditions(!showConditions);
   }
 
   return (
@@ -63,8 +64,9 @@ const PostForm = () => {
       )}
     {showConditions &&
       <div>
-      <div>{weatherData.rain && weatherData.rain[time]}</div>
-      <div>{weatherData.temperature_2m && weatherData.temperature_2m[time]}</div>
+      <div>Rain: {weatherData.rain && weatherData.rain[time]}mm</div>
+      <div>Temperature: {weatherData.temperature_2m && weatherData.temperature_2m[time]}°C</div>
+      <div>Precipitation probability: {weatherData.precipitation_probability && weatherData.precipitation_probability[time]}%</div>
       </div> 
       }  
     </div>
