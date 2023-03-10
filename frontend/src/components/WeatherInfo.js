@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, cloudcover }) => {
+const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, cloudcover, selectedCity, time }) => {
 
   const [rainIncluded, setRainIncluded] = useState(false);
   const [temperatureIncluded, setTemperatureIncluded] = useState(false);
@@ -16,7 +16,11 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
   }
 
   const createPost = () => {
-    const body = {thoughts: thoughts};
+    const body = {
+      posterId: localStorage.getItem("userId"),
+      thoughts: thoughts,
+      city: selectedCity,
+    };
 
     if (rainIncluded) {
       body.rain = rain;
@@ -25,7 +29,7 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
       body.temperature = temperature;
     }
     if (precipitationIncluded) {
-      body.precipitaion = precipitation;
+      body.precipitation = precipitation;
     }
     if (windspeedIncluded) {
       body.windspeed = windspeed;

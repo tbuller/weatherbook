@@ -5,11 +5,12 @@ import WeatherInfo from './WeatherInfo';
 
 const PostForm = () => {
 
-  const [selectedCity, setSelectedCity] = useState();
+  const [selectedCity, setSelectedCity] = useState("London");
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
   const [weatherData, setWeatherData] = useState([]);
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState("");
+  const [timeIndex, setTimeIndex] = useState(0);
   const [showConditions, setShowConditions] = useState(false);
   const isFirstRender = useRef(true);
 
@@ -40,11 +41,13 @@ const PostForm = () => {
   const getData = () => {
     console.log(weatherData);
     console.log(weatherData.temperature_2m[5]);
+    console.log(timeIndex);
     console.log(time);
   }
 
   const handleTime = (event) => {
-    setTime(event.target.value);
+    setTime(event.target.id);
+    setTimeIndex(event.target.value);
     setShowConditions(!showConditions);
   }
 
@@ -61,15 +64,17 @@ const PostForm = () => {
     </select>
     <button onClick={getData}>get data</button>
     {weatherData.time && weatherData.time.map((time, index) => 
-      <button key={index} value={index} onClick={handleTime}>{new Date(time).toLocaleTimeString()}</button>
+      <button id={time} key={index} value={index} onClick={handleTime}>{new Date(time).toLocaleTimeString()}</button>
       )}
     <WeatherInfo 
-    rain={weatherData.rain?.[time]}
-    temperature={weatherData.temperature_2m?.[time]} 
-    precipitation={weatherData.precipitation_probability?.[time]}
-    windspeed={weatherData.windspeed_10m?.[time]}
-    radiation={weatherData.shortwave_radiation_instant?.[time]}
-    cloudcover={weatherData.cloudcover?.[time]}
+    rain={weatherData.rain?.[timeIndex]}
+    temperature={weatherData.temperature_2m?.[timeIndex]} 
+    precipitation={weatherData.precipitation_probability?.[timeIndex]}
+    windspeed={weatherData.windspeed_10m?.[timeIndex]}
+    radiation={weatherData.shortwave_radiation_instant?.[timeIndex]}
+    cloudcover={weatherData.cloudcover?.[timeIndex]}
+    selectedCity={selectedCity}
+    time={time}
     />
     </div>
   )
