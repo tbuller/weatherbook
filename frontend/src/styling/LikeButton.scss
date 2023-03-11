@@ -1,0 +1,14 @@
+.like-button {
+  width: 10%;
+  font-size: 1vw;
+  padding-top: 1%;
+  border-radius: 10px;
+  transition: all 0.15s ease-out; 
+
+  &:hover {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
