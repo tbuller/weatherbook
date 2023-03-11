@@ -1,7 +1,11 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addComment } from "../redux/commentsSlice";
 
 const CommentsForm = (postId) => {
+
+  const dispatch = useDispatch();
 
   const [comment, setComment] = useState("");
 
@@ -18,7 +22,7 @@ const CommentsForm = (postId) => {
       body: JSON.stringify({commenterId: localStorage.getItem("userId"), postId: postId.postId, comment: comment})
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => dispatch(addComment(data.comment)))
   }
 
   return (

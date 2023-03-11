@@ -7,7 +7,7 @@ const CommentsController = {
       if (err) {
         res.status(401).json({ message: "server error", req: req.body });
       } else {
-        res.status(200).json({ message: "OK" })
+        res.status(200).json({ message: "OK", comment: comment })
       }
     })
   },

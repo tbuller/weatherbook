@@ -30,7 +30,7 @@ const Posts = () => {
       {post.radiation && <div>shortwave radiation: {post.radiation} W/m2</div>}
       {post.cloudcover && <div>cloud cover: {post.cloudcover}%</div>}
       <div>{post.createdAt}</div>
-      <Comments />
+      <Comments postId={post._id} />
       <CommentsForm postId={post._id} />
       </div>
       )}    
