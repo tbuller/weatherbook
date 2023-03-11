@@ -7,11 +7,12 @@
   border-radius: 12px;
   font-size: 1vw;
   font-family: 'Droid Serif', serif;
-}
-
-.time-button:hover {
-  background-color: green;
-  border-color: green;
-  transform: scale(1.1);
-  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  
+  &:hover {
+    background-color: green;
+    border-color: green;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 }

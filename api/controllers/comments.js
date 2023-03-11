@@ -5,7 +5,7 @@ const CommentsController = {
     const comment = new Comment(req.body);
     comment.save((err) => {
       if (err) {
-        res.status(401).json({ message: "server error" });
+        res.status(401).json({ message: "server error", req: req.body });
       } else {
         res.status(200).json({ message: "OK" })
       }

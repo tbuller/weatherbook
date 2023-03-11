@@ -1,3 +1,12 @@
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .post-container {
   border: 2px solid black;
+  width: 20%;
+  margin: auto;
+  margin-bottom: 1%;
 }
