@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import WeatherInfo from './WeatherInfo';
+import '../styling/PostForm.scss';
 
 
 const PostForm = () => {
@@ -64,7 +65,7 @@ const PostForm = () => {
     </select>
     <button onClick={getData}>get data</button>
     {weatherData.time && weatherData.time.map((time, index) => 
-      <button id={time} key={index} value={index} onClick={handleTime}>{new Date(time).toLocaleTimeString()}</button>
+      <button id={time} key={index} value={index} className="time-button" onClick={handleTime}>{new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</button>
       )}
     <WeatherInfo 
     rain={weatherData.rain?.[timeIndex]}

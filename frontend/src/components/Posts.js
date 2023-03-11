@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Comments from './Comments';
+import { GiSunRadiations } from 'react-icons/gi';
 import '../styling/Posts.scss';
 
 const Posts = () => {

@@ -1,0 +1,17 @@
+.time-button {
+  margin-left: 0.5%;
+  width: 3%;
+  background-color: orange;
+  color: white;
+  border-color: orange;
+  border-radius: 12px;
+  font-size: 1vw;
+  font-family: 'Droid Serif', serif;
+}
+
+.time-button:hover {
+  background-color: green;
+  border-color: green;
+  transform: scale(1.1);
+  cursor: pointer;
+}
