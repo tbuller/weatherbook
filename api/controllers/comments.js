@@ -19,6 +19,16 @@ const CommentsController = {
         res.status(200).json({ message: "OK", comments: comments });
       }
     })
+  },
+  Like: (req, res, next) => {
+    const { likerId, commentId } = req.body
+    Comment.findOneAndUpdate({ _id: commentId }, { $push: { likes: likerId } }, { new: true }, (err, comment) => {
+      if (err) {
+        res.status(400).json({ message: "server error" });
+      } else {
+        res.status(200).json({ message: "OK", comment: comment });
+      }
+    })
   }
 }
 

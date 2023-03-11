@@ -5,5 +5,6 @@ const CommentsController = require("../controllers/comments");
 
 router.post("/", CommentsController.Create);
 router.get("/", CommentsController.List);
+router.patch("/", CommentsController.Like);
 
 module.exports = router;

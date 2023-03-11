@@ -7,7 +7,7 @@ const LikeButton = ({ commentId }) => {
 
   const likeComment = () => {
     fetch("http://localhost:8080/comments", {
-      method: "patch",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
@@ -19,7 +19,7 @@ const LikeButton = ({ commentId }) => {
 
   return (
     <div>
-    <button className="like-button"><AiOutlineLike /></button>  
+    <button className="like-button" onClick={likeComment}><AiOutlineLike /></button>  
     </div>
   )
 }
