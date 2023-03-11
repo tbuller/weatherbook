@@ -17,6 +17,7 @@ const Comments = ({ postId }) => {
         <div>{comment.commenterId}</div>
         <div>{comment.comment}</div>
         <LikeButton commentId={comment._id} />
+        <div>{comment.likes.length} likes</div>
         </div>
         )
       }})
