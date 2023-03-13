@@ -3,6 +3,9 @@ import Landing from './components/Landing';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import MyHome from './components/MyHome';
+import Notifications from './components/Notifications';
+import Profile from './components/Profile';
+import Messages from './components/Messages';
 import { useNavigate, Routes, Route } from 'react-router-dom';
 import './App.scss';
 
@@ -16,7 +19,9 @@ function App() {
       <Route path="/signup" element={<Signup navigate={navigate} />} />
       <Route path="/login" element={<Login navigate={navigate} />} />
       <Route path="/myhome" element={<MyHome navigate={navigate} />}/>
-      <Route path="/notification"/>
+      <Route path="/notifications" element={<Notifications navigate={navigate} />}/>
+      <Route path="/profile" element={<Profile navigate={navigate} />}/>
+      <Route path="/messages" element={<Messages navigate={navigate} />}/>
     </Routes>
   );
 }

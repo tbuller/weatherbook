@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPosts, addPost } from '../redux/postsSlice';
 import { setComments, addComment } from '../redux/commentsSlice';
+import Navbar from './Navbar';
 import PostForm from './PostForm';
 import Posts from './Posts';
 
@@ -31,6 +32,7 @@ const MyHome = ({ navigate }) => {
 
   return (
     <div>
+    <Navbar />
     <h1>Welcome to your home page</h1>
     <button onClick={showComments}>Show comments</button>
     <PostForm />
