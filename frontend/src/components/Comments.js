@@ -5,6 +5,7 @@ import LikeButton from './LikeButton';
 
 const Comments = ({ postId }) => {
 
+  const users = useSelector(state => state.users.users);  
   const comments = useSelector(state => state.comments.comments);
 
   return (
@@ -14,7 +15,7 @@ const Comments = ({ postId }) => {
       if (comment.postId === postId) {
         return ( 
         <div className="comment-container" key={comment._id}>  
-        <div>{comment.commenterId}</div>
+        <div>{users.map(u => u._id === comment.commenterId && <p key={u._id}>{u.username}</p>)}</div>
         <div>{comment.comment}</div>
         <LikeButton commentId={comment._id} />
         <div>{comment.likes.length} likes</div>

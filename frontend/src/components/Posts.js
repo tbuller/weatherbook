@@ -5,9 +5,11 @@ import Comments from './Comments';
 import CommentsForm from './CommentsForm';
 import { GiSunRadiations } from 'react-icons/gi';
 import '../styling/Posts.scss';
+import usersSlice from '../redux/usersSlice';
 
 const Posts = () => {
 
+  const users = useSelector(state => state.users.users);  
   const posts = useSelector(state => state.posts.posts);
 
   const showPosts = () => {
@@ -19,7 +21,7 @@ const Posts = () => {
     <div className="posts-container">
     {posts.map(post => 
       <div key={post._id} className="post-container">
-      <div>{post.posterId}</div>
+      <div>{users.map(u => u._id === post.posterId && <p key={u._id}>{u.username}</p>)}</div>
       <div>{post.city}</div>
       <div>{post.time}</div>
       <div>{post.thoughts}</div>
