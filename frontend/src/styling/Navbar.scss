@@ -1,5 +1,22 @@
 .navbar-container {
   display: flex;
   width: 100%;
-  align-items: center;
+  height: 4vh;
+  justify-content: flex-end;
+  gap: 1%;
+  background-color: #555;
+  button {
+    background-color: #555;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    &:hover {
+      cursor: pointer;
+      background-color: #777;
+    }
+  }
+}
+
+.nav-selected {
+  background-color: #777 !important;
 }
