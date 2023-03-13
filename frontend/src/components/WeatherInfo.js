@@ -2,6 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPosts, addPost } from '../redux/postsSlice';
+import { GiSunRadiations, GiWindsock } from 'react-icons/gi';
+import { FaWind, FaTemperatureHigh, FaThermometerHalf } from 'react-icons/fa';
+import { SiRainmeter } from 'react-icons/si'
+import { BsCloudRainFill, BsCloudsFill } from 'react-icons/bs';
+import { RiAddCircleLine } from 'react-icons/ri';
 import '../styling/WeatherInfo.scss';
 
 const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, cloudcover, selectedCity, time }) => {
@@ -69,36 +74,38 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
   }
 
   return (
-    <div>
+    <div className="post-form-container">
     <div>
     <label>Share your thoughts:</label>  
     <input type="text" onChange={handleThoughts} />
     </div>
-    <span>
-    <div>Rain: {rain}mm</div>
-    <button onClick={() => setRainIncluded(!rainIncluded)}>Add to post</button>
+    <div className="info-container">
+    <span className="weather-metric">
+    <div><SiRainmeter className="rain-icon" />Rain: {rain}mm</div>
+    <button onClick={() => setRainIncluded(!rainIncluded)}><RiAddCircleLine className="add-info-button" /></button>
     </span>
-    <span>
-    <div>Temperature: {temperature}°C</div>
-    <button onClick={() => setTemperatureIncluded(!temperatureIncluded)}>Add to post</button>
+    <span className="weather-metric">
+    <div><FaThermometerHalf className="temperature-icon" />Temperature: {temperature}°C</div>
+    <button onClick={() => setTemperatureIncluded(!temperatureIncluded)}><RiAddCircleLine className="add-info-button" /></button>
     </span>
-    <span>
-    <div>Precipitation probability: {precipitation}%</div>
-    <button onClick={() => setPrecipitationIncluded(!precipitationIncluded)}>Add to post</button>
+    <span className="weather-metric">
+    <div><BsCloudRainFill className="precipitation-icon" />Precipitation probability: {precipitation}%</div>
+    <button onClick={() => setPrecipitationIncluded(!precipitationIncluded)}><RiAddCircleLine className="add-info-button" /></button>
     </span>
-    <span>
-    <div>Windspeed: {windspeed} km/h</div>
-    <button onClick={() => setWindspeedIncluded(!windspeedIncluded)}>Add to post</button>
+    <span className="weather-metric">
+    <div><FaWind className="wind-icon" />Windspeed: {windspeed} km/h</div>
+    <button onClick={() => setWindspeedIncluded(!windspeedIncluded)}><RiAddCircleLine className="add-info-button" /></button>
     </span>
-    <span>
-    <div>Radiation: {radiation} W/m2</div>
-    <button onClick={() => setRadiationIncluded(!radiationIncluded)}>Add to post</button>
+    <span className="weather-metric">
+    <div><GiSunRadiations className="radiation-icon" />Radiation: {radiation} W/m2</div>
+    <button onClick={() => setRadiationIncluded(!radiationIncluded)}><RiAddCircleLine className="add-info-button" /></button>
     </span>
-    <span>
-    <div>Cloudcover: {cloudcover}%</div>
-    <button onClick={() => setCloudcoverIncluded(!cloudcoverIncluded)}>Add to post</button>
+    <span className="weather-metric">
+    <div><BsCloudsFill className="cloudcover-icon" />Cloudcover: {cloudcover}%</div>
+    <button onClick={() => setCloudcoverIncluded(!cloudcoverIncluded)}><RiAddCircleLine className="add-info-button" /></button>
     </span>
     <button onClick={createPost}>Create post!</button>
+    </div>
     </div>
   )
 }

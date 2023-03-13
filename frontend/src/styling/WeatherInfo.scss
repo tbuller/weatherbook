@@ -4,7 +4,59 @@ label {
 
 input {
   height: 3vh;
-  width: 30%;
+  width: 50%;
   border-radius: 12px;
   margin-left: 2%;
+}
+
+.info-container {
+  display: flex;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.weather-metric {
+  display: flex;
+}
+@mixin my-icon {
+  font-size: 2em;
+  padding: 0.2em;
+  border: 1px solid rgb(217, 212, 212);
+  background-color: rgb(217, 212, 212);
+  border-radius: 30px;
+}
+
+.rain-icon {
+  @include my-icon;
+  color: blue
+}
+
+.temperature-icon {
+  @include my-icon;
+  font-size: 2em;
+  color: red;
+}
+
+.precipitation-icon {
+  @include my-icon;
+}
+
+.wind-icon {
+  @include my-icon;
+  color: white;
+}
+
+.radiation-icon {
+  @include my-icon;
+  color: orange;
+}
+
+.cloudcover-icon {
+  @include my-icon;
+}
+
+.add-info-button {
+  font-size: 2em;
+  border: 1px solid rgb(217, 212, 212);
+  background-color: rgb(217, 212, 212);
 }
