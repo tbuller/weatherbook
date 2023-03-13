@@ -17,7 +17,21 @@ input {
 
 .weather-metric {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 1%;
 }
+
+.metric-div {
+  display: flex;
+  align-items: center;
+}
+
+.metric-data {
+  
+}
+
 @mixin my-icon {
   font-size: 2em;
   padding: 0.2em;
@@ -56,7 +70,17 @@ input {
 }
 
 .add-info-button {
+  height: 2em;
+  width: 2em;
+  background-color: white;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.add-info-icon {
   font-size: 2em;
-  border: 1px solid rgb(217, 212, 212);
-  background-color: rgb(217, 212, 212);
+  background-color: white;
+  border: none;
 }

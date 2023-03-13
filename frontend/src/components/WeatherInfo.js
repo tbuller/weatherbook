@@ -81,28 +81,28 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
     </div>
     <div className="info-container">
     <span className="weather-metric">
-    <div><SiRainmeter className="rain-icon" />Rain: {rain}mm</div>
-    <button onClick={() => setRainIncluded(!rainIncluded)}><RiAddCircleLine className="add-info-button" /></button>
+    <div className="metric-div"><SiRainmeter className="rain-icon" /><p className="metric-data">Rain: {rain}mm</p></div>
+    <button className="add-info-button" onClick={() => setRainIncluded(!rainIncluded)}><RiAddCircleLine className="add-info-icon" /></button>
     </span>
     <span className="weather-metric">
-    <div><FaThermometerHalf className="temperature-icon" />Temperature: {temperature}°C</div>
-    <button onClick={() => setTemperatureIncluded(!temperatureIncluded)}><RiAddCircleLine className="add-info-button" /></button>
+    <div className="metric-div"><FaThermometerHalf className="temperature-icon" /><p className="metric-data">Temperature: {temperature}°C</p></div>
+    <button className="add-info-button" onClick={() => setTemperatureIncluded(!temperatureIncluded)}><RiAddCircleLine className="add-info-icon" /></button>
     </span>
     <span className="weather-metric">
-    <div><BsCloudRainFill className="precipitation-icon" />Precipitation probability: {precipitation}%</div>
-    <button onClick={() => setPrecipitationIncluded(!precipitationIncluded)}><RiAddCircleLine className="add-info-button" /></button>
+    <div className="metric-div"><BsCloudRainFill className="precipitation-icon" /><p className="metric-data">Precipitation probability: {precipitation}%</p></div>
+    <button className="add-info-button" onClick={() => setPrecipitationIncluded(!precipitationIncluded)}><RiAddCircleLine className="add-info-icon" /></button>
     </span>
     <span className="weather-metric">
-    <div><FaWind className="wind-icon" />Windspeed: {windspeed} km/h</div>
-    <button onClick={() => setWindspeedIncluded(!windspeedIncluded)}><RiAddCircleLine className="add-info-button" /></button>
+    <div className="metric-div"><FaWind className="wind-icon" /><p className="metric-data">Windspeed: {windspeed} km/h</p></div>
+    <button className="add-info-button" onClick={() => setWindspeedIncluded(!windspeedIncluded)}><RiAddCircleLine className="add-info-icon" /></button>
     </span>
     <span className="weather-metric">
-    <div><GiSunRadiations className="radiation-icon" />Radiation: {radiation} W/m2</div>
-    <button onClick={() => setRadiationIncluded(!radiationIncluded)}><RiAddCircleLine className="add-info-button" /></button>
+    <div className="metric-div"><GiSunRadiations className="radiation-icon" /><p className="metric-data">Radiation: {radiation} W/m2</p></div>
+    <button className="add-info-button" onClick={() => setRadiationIncluded(!radiationIncluded)}><RiAddCircleLine className="add-info-icon" /></button>
     </span>
     <span className="weather-metric">
-    <div><BsCloudsFill className="cloudcover-icon" />Cloudcover: {cloudcover}%</div>
-    <button onClick={() => setCloudcoverIncluded(!cloudcoverIncluded)}><RiAddCircleLine className="add-info-button" /></button>
+    <div className="metric-div"><BsCloudsFill className="cloudcover-icon" /><p className="metric-data">Cloudcover: {cloudcover}%</p></div>
+    <button className="add-info-button" onClick={() => setCloudcoverIncluded(!cloudcoverIncluded)}><RiAddCircleLine className="add-info-icon" /></button>
     </span>
     <button onClick={createPost}>Create post!</button>
     </div>
