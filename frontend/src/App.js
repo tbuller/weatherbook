@@ -16,6 +16,7 @@ function App() {
       <Route path="/signup" element={<Signup navigate={navigate} />} />
       <Route path="/login" element={<Login navigate={navigate} />} />
       <Route path="/myhome" element={<MyHome navigate={navigate} />}/>
+      <Route path="/notification"/>
     </Routes>
   );
 }
