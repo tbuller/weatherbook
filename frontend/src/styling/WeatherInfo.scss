@@ -75,7 +75,7 @@ input {
 .add-info-button {
   height: 2em;
   width: 2em;
-  background-color: white;
+  background-color: orange;
   border: none;
   &:hover {
     cursor: pointer;
@@ -84,10 +84,25 @@ input {
 
 .add-info-icon {
   font-size: 2em;
-  background-color: white;
+  background-color: orange;
   border: none;
   &-selected {
     @extend .add-info-icon;
     color: rgb(51, 153, 51);
+  }
+}
+
+.submit-post-button {
+  font-size: 1.5em;
+  margin-left: 1%;
+  border: 1px solid rgb(217, 212, 212);
+  background-color: rgb(217, 212, 212);
+  border-radius: 12px;
+  transition: ease-out 0.3s;
+  &:hover {
+    cursor: pointer;
+    border: 1px solid green;
+    background-color: green;
+    transform: scale(1.05);
   }
 }

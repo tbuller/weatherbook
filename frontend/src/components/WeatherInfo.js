@@ -104,7 +104,7 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
     <div className="metric-div"><BsCloudsFill className="cloudcover-icon" /><p className="metric-data">Cloudcover: {cloudcover}%</p></div>
     <button className="add-info-button" onClick={() => setCloudcoverIncluded(!cloudcoverIncluded)}><RiAddCircleLine className={cloudcoverIncluded ? "add-info-icon-selected" : "add-info-icon"} /></button>
     </span>
-    <button onClick={createPost}>Create post!</button>
+    <button className="submit-post-button" onClick={createPost}>Post!</button>
     </div>
     </div>
   )
