@@ -19,7 +19,7 @@ const Posts = () => {
   return (
     <div>
     <div className="posts-container">
-    {posts.map(post => 
+    {posts.slice().reverse().map(post => 
       <div key={post._id} className="post-container">
       <div>{users.map(u => u._id === post.posterId && <p key={u._id}>{u.username}</p>)}</div>
       <div>{post.city}</div>

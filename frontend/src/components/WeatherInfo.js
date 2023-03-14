@@ -82,7 +82,7 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
     <div className="info-container">
     <span className="weather-metric">
     <div className="metric-div"><SiRainmeter className="rain-icon" /><p className="metric-data">Rain: {rain}mm</p></div>
-    <button className="add-info-button" onClick={() => setRainIncluded(!rainIncluded)}><RiAddCircleLine className="add-info-icon" /></button>
+    <button className="add-info-button" onClick={() => setRainIncluded(!rainIncluded)}><RiAddCircleLine className={rainIncluded ? "add-info-icon-selected" : "add-info-icon"} /></button>
     </span>
     <span className="weather-metric">
     <div className="metric-div"><FaThermometerHalf className="temperature-icon" /><p className="metric-data">Temperature: {temperature}°C</p></div>

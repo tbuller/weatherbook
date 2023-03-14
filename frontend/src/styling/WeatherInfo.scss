@@ -29,7 +29,10 @@ input {
 }
 
 .metric-data {
-  
+  display: inline-block;
+  align-items: center;
+  white-space: nowrap;
+  margin-left: 8px;
 }
 
 @mixin my-icon {
@@ -83,4 +86,8 @@ input {
   font-size: 2em;
   background-color: white;
   border: none;
+  &-selected {
+    @extend .add-info-icon;
+    color: green;
+  }
 }
