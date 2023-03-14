@@ -5,8 +5,37 @@
 }
 
 .post-container {
-  border: 2px solid black;
-  width: 20%;
+  border: 3px solid black;
+  border-radius: 12px;
+  background-color: #FFCBA4;
+  width: 45%;
   margin: auto;
   margin-bottom: 1%;
+  padding: 0.5%;
+
+  .first-line-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    .profile-picture {
+      font-size: 2rem;
+    }
+    
+    .username {
+      font-weight: bold;
+    }
+    
+    .city {
+      font-style: italic;
+    }
+    
+    .time {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .thoughts, .rain, .temperature, .precipitation, .windspeed, .radiation, .cloudcover, .posted-at {
+    width: 100%;
+  }
 }

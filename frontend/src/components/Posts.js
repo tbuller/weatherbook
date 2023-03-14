@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Comments from './Comments';
 import CommentsForm from './CommentsForm';
 import { GiSunRadiations } from 'react-icons/gi';
+import { CgProfile } from 'react-icons/cg';
 import '../styling/Posts.scss';
 import usersSlice from '../redux/usersSlice';
 
@@ -21,17 +22,20 @@ const Posts = () => {
     <div className="posts-container">
     {posts.slice().reverse().map(post => 
       <div key={post._id} className="post-container">
-      <div>{users.map(u => u._id === post.posterId && <p key={u._id}>{u.username}</p>)}</div>
-      <div>{post.city}</div>
-      <div>{post.time}</div>
-      <div>{post.thoughts}</div>
-      {post.rain && <div>Rain: {post.rain}mm</div>}
-      {post.temperature && <div>Temperature: {post.temperature}°C</div>}
-      {post.precipitation && <div>Precipitation probability: {post.precipitation}%</div>}
-      {post.windspeed && <div>Wind speed: {post.windspeed} km/h</div>}
-      {post.radiation && <div>shortwave radiation: {post.radiation} W/m2</div>}
-      {post.cloudcover && <div>cloud cover: {post.cloudcover}%</div>}
-      <div>{post.createdAt}</div>
+      <div className="first-line-container">
+      <div className="profile-picture"><CgProfile /></div>  
+      <div className="username">{users.map(u => u._id === post.posterId && <p key={u._id}>{u.username}</p>)}</div>
+      <div className="city">{post.city}</div>
+      <div className="time">{post.time}</div>
+      </div>
+      <div className="thoughts">{post.thoughts}</div>
+      {post.rain && <div className="rain">Rain: {post.rain}mm</div>}
+      {post.temperature && <div className="temperature">Temperature: {post.temperature}°C</div>}
+      {post.precipitation && <div className="precipitation">Precipitation probability: {post.precipitation}%</div>}
+      {post.windspeed && <div className="windspeed">Wind speed: {post.windspeed} km/h</div>}
+      {post.radiation && <div className="radiation">shortwave radiation: {post.radiation} W/m2</div>}
+      {post.cloudcover && <div className="cloudcover">cloud cover: {post.cloudcover}%</div>}
+      <div className="posted-at">{post.createdAt}</div>
       <Comments postId={post._id} />
       <CommentsForm postId={post._id} />
       </div>

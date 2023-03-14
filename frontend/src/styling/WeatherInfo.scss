@@ -88,6 +88,6 @@ input {
   border: none;
   &-selected {
     @extend .add-info-icon;
-    color: green;
+    color: rgb(51, 153, 51);
   }
 }
