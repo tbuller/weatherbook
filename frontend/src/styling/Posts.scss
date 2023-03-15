@@ -4,6 +4,17 @@
   justify-content: center;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    // transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    // transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 .post-container {
   border: 3px solid black;
   border-radius: 12px;
@@ -12,6 +23,7 @@
   margin: auto;
   margin-bottom: 1%;
   padding: 0.5%;
+  animation: fadeIn 1s forwards;
 
   .first-line-container {
     display: flex;
@@ -32,6 +44,7 @@
     
     .time {
       font-size: 0.8rem;
+      margin-left: 65%;
     }
   }
   

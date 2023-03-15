@@ -26,10 +26,10 @@ const Posts = () => {
       <div className="profile-picture"><CgProfile /></div>  
       <div className="username">{users.map(u => u._id === post.posterId && <p key={u._id}>{u.username}</p>)}</div>
       <div className="city">{post.city}</div>
-      <div className="time">{(post.time).toString().slice(11, 16)}, {new Date(post.time).toDateString()}</div>
+      <div className="time">{(post.time).toString().slice(11, 16)}, {new Date().toDateString() === new Date(post.time).toDateString().slice(0, 10) ? "Today" : new Date(post.time).toDateString().split(' ').slice(0, 3).join(' ')}</div>
       </div>
       <div className="thoughts">{post.thoughts}</div>
-      {post.rain && <div className="rain">Rain: {post.rain}mm</div>}
+      {post.rain !== null && <div className="rain">Rain: {post.rain}mm</div>}
       {post.temperature && <div className="temperature">Temperature: {post.temperature}°C</div>}
       {post.precipitation && <div className="precipitation">Precipitation probability: {post.precipitation}%</div>}
       {post.windspeed && <div className="windspeed">Wind speed: {post.windspeed} km/h</div>}
