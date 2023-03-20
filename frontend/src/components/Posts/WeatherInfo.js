@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPosts, addPost } from '../redux/postsSlice';
+import { setPosts, addPost } from '../../redux/postsSlice';
 import { GiSunRadiations, GiWindsock } from 'react-icons/gi';
 import { FaWind, FaTemperatureHigh, FaThermometerHalf } from 'react-icons/fa';
 import { SiRainmeter } from 'react-icons/si'
 import { BsCloudRainFill, BsCloudsFill } from 'react-icons/bs';
 import { RiAddCircleLine } from 'react-icons/ri';
-import '../styling/WeatherInfo.scss';
+import '../../styling/WeatherInfo.scss';
 
 const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, cloudcover, selectedCity, time }) => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import WeatherInfo from './WeatherInfo';
-import '../styling/PostForm.scss';
+import '../../styling/PostForm.scss';
 
 
 const PostForm = () => {

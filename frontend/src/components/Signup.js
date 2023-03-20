@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUsers, addUser } from '../redux/usersSlice';
-import ReduxTest from './ReduxTest';
 
 const Signup = ({ navigate }) => {
 
@@ -76,7 +75,6 @@ const Signup = ({ navigate }) => {
     {emailDuplicate && <div>email already used to sign up, please log in to continue</div>}
     {usernameDuplicate && <div>username already is use, please choose another username or log in if you have already created an account</div>}
     {users && users.map(u => <div key={u._id}>{u.username}</div>)}
-    <ReduxTest />
     <button onClick={showUsers}>show users</button>
     </div>
   )

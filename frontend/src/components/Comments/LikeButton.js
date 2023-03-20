@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { AiOutlineLike } from 'react-icons/ai';
-import '../styling/LikeButton.scss';
+import '../../styling/LikeButton.scss';
 
 const LikeButton = ({ commentId }) => {
 

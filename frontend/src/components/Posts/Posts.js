@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import Comments from './Comments';
-import CommentsForm from './CommentsForm';
+import Comments from '../Comments/Comments';
+import CommentsForm from '../Comments/CommentsForm';
 import { GiSunRadiations } from 'react-icons/gi';
 import { CgProfile } from 'react-icons/cg';
-import '../styling/Posts.scss';
-import usersSlice from '../redux/usersSlice';
+import '../../styling/Posts.scss';
+import usersSlice from '../../redux/usersSlice';
 
 const Posts = () => {
 

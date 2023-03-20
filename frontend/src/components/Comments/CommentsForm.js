@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addComment } from "../redux/commentsSlice";
+import { addComment } from "../../redux/commentsSlice";
 
 const CommentsForm = (postId) => {
 

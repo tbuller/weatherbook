@@ -5,8 +5,8 @@ import { setUsers } from '../redux/usersSlice';
 import { setPosts, addPost } from '../redux/postsSlice';
 import { setComments, addComment } from '../redux/commentsSlice';
 import Navbar from './Navbar';
-import PostForm from './PostForm';
-import Posts from './Posts';
+import PostForm from './Posts/PostForm';
+import Posts from './Posts/Posts';
 import '../styling/MyHome.scss';
 
 const MyHome = ({ navigate }) => {
