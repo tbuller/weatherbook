@@ -5,6 +5,7 @@ import '../styling/SearchBar.scss';
 const SearchBar = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedUser, setSelectedUser] = useState("");
   const [displayUsers, setDisplayUSers] = useState(false);
   const [users, setUsers] = useState([]);
 
@@ -18,6 +19,11 @@ const SearchBar = () => {
     setSearchTerm(event.target.value);
   }
 
+  const handleUserSelection = (username) => {
+    setSelectedUser(username);
+    console.log(selectedUser);
+  }
+
   return (
     <div className="search-bar-container">
     <input className="search-bar" type="text" onChange={handleSearch} />
@@ -25,7 +31,7 @@ const SearchBar = () => {
       <ul>
           {users.filter(u => u.username.toLowerCase().includes(searchTerm.toLowerCase()))
           .map(i => (
-            <li key={i._id}>{i.username}</li>
+            <li key={i._id} onClick={() => handleUserSelection(i.username)}>{i.username}</li>
           ))
           }
       </ul>
