@@ -22,16 +22,18 @@ const SearchBar = () => {
 
   const handleUserSelection = (username) => {
     // setSelectedUser(username);
-    setSelectedUser(users.filter(u => u.username == username));
+    setSelectedUser(users.filter(u => u.username === username));
     console.log(selectedUser);
   }
 
   return (
     <div className="search-bar-container">
+    <h1 className="search-prompt">Find friends:</h1>
     <input className="search-bar" type="text" onChange={handleSearch} />
     {searchTerm.length > 0 && (
       <ul>
           {users.filter(u => u.username.toLowerCase().includes(searchTerm.toLowerCase()))
+          .slice(0, 5)
           .map(i => (
             <li key={i._id} onClick={() => handleUserSelection(i.username)}>{i.username}</li>
           ))
