@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import '../styling/SearchBar.scss';
+import UserInfo from './UserInfo';
 
 const SearchBar = () => {
 
@@ -20,7 +21,8 @@ const SearchBar = () => {
   }
 
   const handleUserSelection = (username) => {
-    setSelectedUser(username);
+    // setSelectedUser(username);
+    setSelectedUser(users.filter(u => u.username == username));
     console.log(selectedUser);
   }
 
@@ -36,6 +38,7 @@ const SearchBar = () => {
           }
       </ul>
     )}
+    {selectedUser && <UserInfo user={selectedUser[0]} />}
     </div>
   )
 }
