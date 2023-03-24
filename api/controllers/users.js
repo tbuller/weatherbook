@@ -30,6 +30,9 @@ const UsersController = {
       }
     })
   }
+  Modify: (req, res, next) => {
+    
+  }
 }
 
 module.exports = UsersController;

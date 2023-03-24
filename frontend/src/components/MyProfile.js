@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import '../styling/MyProfile.scss';
 
 const MyProfile = () => {
 
@@ -19,7 +20,7 @@ const MyProfile = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(from)
+      body: JSON.stringify({ from: from, userId: localStorage.getItem("userId") })
     })
       .then(response => response.json())
       .then(data => console.log(data))
@@ -31,7 +32,7 @@ const MyProfile = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(aboutMe)
+      body: JSON.stringify({ aboutMe: aboutMe, userId: localStorage.getItem("userId") })
     })
       .then(response => response.json())
       .then(data => console.log(data))
@@ -56,12 +57,16 @@ const MyProfile = () => {
          )}
     </div>
     <div className="add-profile-info-container">
-    <label>Tell others where you are from</label>  
-    <input className="add-profile-info-input" type="text" onChange={handleFrom} />
+    <span className="from-container">
+    <label className="add-profile-info-label">Tell others where you are from</label>  
+    <input className="add-profile-info-input-from" type="text" onChange={handleFrom} />
     <button className="add-profile-info-button" onClick={updateFrom}>Add info to profile</button>
-    <label>Add some more information about yourself</label>
-    <input className="add-profile-info-input" type="text" onChange={handleAboutMe} />
+    </span>
+    <span className="aboutme-container">
+    <label className="add-profile-info-label">Add some more information about yourself</label>
+    <input className="add-profile-info-input-aboutme" type="text" onChange={handleAboutMe} />
     <button className="add-profile-info-button" onClick={updateAboutMe}>Add info to profile</button>
+    </span>
     </div>
     </div>
   )
