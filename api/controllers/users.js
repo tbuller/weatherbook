@@ -29,9 +29,23 @@ const UsersController = {
         res.status(200).json({ message: "OK", users: users });
       }
     })
-  }
+  },
   Modify: (req, res, next) => {
-    
+    const { from, aboutMe, userId } = req.body;
+    updateUser = {};
+    if (from) {
+      updateUser.from = from;
+    }
+    if (aboutMe) {
+      updateUser.aboutMe = aboutMe;
+    }
+    User.findOneAndUpdate({ _id: userId }, updateUser, { new: true }, (err, user) => {
+      if (err) {
+        res.status(401).json({ message: "server error" });
+      } else {
+        res.status(200).json({ message: "OK", user });
+      }
+    })
   }
 }
 
