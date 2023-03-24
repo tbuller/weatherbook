@@ -7,11 +7,15 @@ const MyProfile = () => {
   const [users, setUsers] = useState([]);
   const [from, setFrom] = useState("");
   const [aboutMe, setABoutMe] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
-      .then(data => setUsers(data.users))
+      .then(data => {
+        setUsers(data.users);
+        data.users.map(u => u._id === localStorage.getItem("userId") ? setLoggedInUser(u) : null);
+      })
   }, [])
 
   const updateFrom = (event) => {
@@ -45,6 +49,10 @@ const MyProfile = () => {
   const handleAboutMe = (event) => {
     setABoutMe(event.target.value);
   }
+  
+  const showLoggedInUser = () => {
+    console.log(loggedInUser);
+  }
 
   return (
     <div>
@@ -57,17 +65,18 @@ const MyProfile = () => {
          )}
     </div>
     <div className="add-profile-info-container">
-    <span className="from-container">
+    {!loggedInUser.from && <span className="from-container">
     <label className="add-profile-info-label">Tell others where you are from</label>  
     <input className="add-profile-info-input-from" type="text" onChange={handleFrom} />
     <button className="add-profile-info-button" onClick={updateFrom}>Add info to profile</button>
-    </span>
-    <span className="aboutme-container">
+    </span>}
+    {!loggedInUser.aboutMe && <span className="aboutme-container">
     <label className="add-profile-info-label">Add some more information about yourself</label>
     <input className="add-profile-info-input-aboutme" type="text" onChange={handleAboutMe} />
     <button className="add-profile-info-button" onClick={updateAboutMe}>Add info to profile</button>
-    </span>
+    </span>}
     </div>
+    <button onClick={showLoggedInUser}>show logged in user</button>
     </div>
   )
 }
