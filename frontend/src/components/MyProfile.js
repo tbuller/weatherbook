@@ -7,6 +7,7 @@ const MyProfile = () => {
   const [users, setUsers] = useState([]);
   const [from, setFrom] = useState("");
   const [aboutMe, setABoutMe] = useState("");
+  const [photo, setPhoto] = useState({});
   const [loggedInUser, setLoggedInUser] = useState({});
 
   useEffect(() => {
@@ -49,6 +50,10 @@ const MyProfile = () => {
   const handleAboutMe = (event) => {
     setABoutMe(event.target.value);
   }
+
+  const handlePhoto = (event) => {
+    setPhoto(event.target.files[0]);
+  }
   
   const showLoggedInUser = () => {
     console.log(loggedInUser);
@@ -65,6 +70,10 @@ const MyProfile = () => {
          )}
     </div>
     <div className="add-profile-info-container">
+    <span className="add-photo-container">
+    <label className="add-profile-info-label">Add an image</label>
+    <input type="file" onChange={handlePhoto} />     
+    </span>  
     {!loggedInUser.from ? <span className="from-container">
     <label className="add-profile-info-label">Tell others where you are from</label>  
     <input className="add-profile-info-input-from" type="text" onChange={handleFrom} />
