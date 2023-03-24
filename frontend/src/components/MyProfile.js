@@ -14,8 +14,13 @@ const MyProfile = () => {
   return (
     <div>
     <h1>My profile</h1>
-    <div>{users.filter(u => u._id === localStorage.getItem("userId"))
-         .map(u => <div key={u._id}>{u.username}</div>)}</div>  
+    <div className="myprofile-info-container">{users.filter(u => u._id === localStorage.getItem("userId"))
+         .map(u => <div key={u._id}>
+         <div>{u.username}</div>
+         <div>{u.email}</div>
+         </div>
+         )}
+    </div>  
     </div>
   )
 }
