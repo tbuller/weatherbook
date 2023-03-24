@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const RequestNotification = ({ requests, users }) => {
+const RequestNotification = ({ requests, users, loggedInUser }) => {
 
   // const showRequests = () => {
   //   console.log(requests);
@@ -26,7 +26,8 @@ const RequestNotification = ({ requests, users }) => {
       return (
       <div className="request-container" key={requester._id}>
       <div>{requester.username}</div>
-      <div>{requester.email}</div>  
+      <div>{requester.email}</div>
+      <button className="accept-request-button" onClick={() => acceptRequest(requester._id)}>{loggedInUser.friends.includes(requester._id) ? "Request accepted" : "Accept Request"}</button>  
       </div>
       )
       })}    
