@@ -41,9 +41,21 @@ const UsersController = {
     }
     User.findOneAndUpdate({ _id: userId }, updateUser, { new: true }, (err, user) => {
       if (err) {
-        res.status(401).json({ message: "server error" });
+        res.status(400).json({ message: "server error" });
       } else {
-        res.status(200).json({ message: "OK", user });
+        res.status(200).json({ message: "OK", user: user });
+      }
+    })
+  },
+  Request: (req, res, next) => {
+    const { requesterId, requestedId } = req.body;
+    User.findOneAndUpdate({ _id: requestedId }, { $addToSet: { requests: requesterId } }, { new: true, useFindAndModify: false }, (err, user) => {
+      if (err) {
+        res.status(400).json({ message: "server error" });
+      } else {
+        res.status(200).json({ message: "OK", user: user });
+        console.log(requesterId);
+        console.log(requestedId);
       }
     })
   }

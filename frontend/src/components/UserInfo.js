@@ -17,15 +17,15 @@ const UserInfo = (user) => {
   }
 
   const addConnection = () => {
-    fetch("http://localhost:8080/users", {
+    fetch("http://localhost:8080/users/request", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ requesterId: localStorage.getItem("userId"), requestedId: user._id })
-        .then(response => response.json())
-        .then(data => console.log(data))
+      body: JSON.stringify({ requesterId: localStorage.getItem("userId"), requestedId: user.user._id })        
     })
+      .then(response => response.json())
+      .then(data => console.log(data))
   }
 
   return (
