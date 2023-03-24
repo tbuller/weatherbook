@@ -54,8 +54,23 @@ const UsersController = {
         res.status(400).json({ message: "server error" });
       } else {
         res.status(200).json({ message: "OK", user: user });
-        console.log(requesterId);
-        console.log(requestedId);
+      }
+    })
+  },
+  AcceptRequest: (req, res, next) => {
+    const { requesterId, requestedId } = req.body;
+    User.findOneAndUpdate({ _id: requestedId }, { $addToSet: { friends: requesterId } }, { new: true, useFindAndModify: false }, (err, user) => {
+      if (err) {
+        res.status(400).json({ message: "server error" });
+      } else {
+        res.status(200).json({ message: "OK", user: user });
+      }
+    })
+    User.findOneAndUpdate({ _id: requesterId }, { $addToSet: { friends: requestedId } }, { new: true, useFindAndModify: false }, (err, user) => {
+      if (err) {
+        res.status(400).json({ message: "server error" });
+      } else {
+        res.status(200).json({ message: "OK", user: user });
       }
     })
   }

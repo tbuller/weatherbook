@@ -7,6 +7,18 @@ const RequestNotification = ({ requests, users }) => {
   //   console.log(requests);
   // }
 
+  const acceptRequest = (requesterId) => {
+    fetch("http://localhost:8080/users/acceptrequest", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ requesterId: requesterId, requestedId: localStorage.getItem("userId") })
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
+
   return (
     <div>
     {requests.map(r => {
