@@ -65,16 +65,16 @@ const MyProfile = () => {
          )}
     </div>
     <div className="add-profile-info-container">
-    {!loggedInUser.from && <span className="from-container">
+    {!loggedInUser.from ? <span className="from-container">
     <label className="add-profile-info-label">Tell others where you are from</label>  
     <input className="add-profile-info-input-from" type="text" onChange={handleFrom} />
     <button className="add-profile-info-button" onClick={updateFrom}>Add info to profile</button>
-    </span>}
-    {!loggedInUser.aboutMe && <span className="aboutme-container">
+    </span> : <div>{loggedInUser.from}</div>}
+    {!loggedInUser.aboutMe ? <span className="aboutme-container">
     <label className="add-profile-info-label">Add some more information about yourself</label>
     <input className="add-profile-info-input-aboutme" type="text" onChange={handleAboutMe} />
     <button className="add-profile-info-button" onClick={updateAboutMe}>Add info to profile</button>
-    </span>}
+    </span> : <div>{loggedInUser.aboutMe}</div>}
     </div>
     <button onClick={showLoggedInUser}>show logged in user</button>
     </div>

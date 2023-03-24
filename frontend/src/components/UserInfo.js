@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 
 
@@ -15,11 +16,26 @@ const UserInfo = (user) => {
     console.log(user);
   }
 
+  const addConnection = () => {
+    fetch("http://localhost:8080/users", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ requesterId: localStorage.getItem("userId"), requestedId: user._id })
+        .then(response => response.json())
+        .then(data => console.log(data))
+    })
+  }
+
   return (
     <div>
-    {user && <div>{user.user.username}</div>}
-    {user && <div>{user.user.email}</div>}
-    {user && <div>user passed down</div>}
+    {user && 
+    <div>
+    <div>{user.user.username}</div>
+    <div>{user.user.email}</div>
+    <button onClick={addConnection}>Connect with {user.user.username} <AiOutlinePlus className="plus-icon" /></button>
+    </div>}
     <button onClick={showUser}>show user</button>
     </div>
   )
