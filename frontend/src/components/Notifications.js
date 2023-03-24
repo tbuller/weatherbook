@@ -1,7 +1,11 @@
 import React from 'react';
 import Navbar from './Navbar';
+import RequestNotification from './RequestNotification';
+import PokeNotification from './PokeNotification';
 
 const Notifications = () => {
+
+
 
   return (
     <div>
