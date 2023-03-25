@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import '../styling/RequestNotification.scss';
 
 const RequestNotification = ({ requests, users, loggedInUser }) => {
 
@@ -25,6 +26,7 @@ const RequestNotification = ({ requests, users, loggedInUser }) => {
       const requester = users.find(u => u._id === r)
       return (
       <div className="request-container" key={requester._id}>
+      <img src={requester.photo || "/blank-photo.webp"} alt="profile-photo" className="profile-photo" />  
       <div>{requester.username}</div>
       <div>{requester.email}</div>
       <button className="accept-request-button" onClick={() => acceptRequest(requester._id)}>{loggedInUser.friends.includes(requester._id) ? "Request accepted" : "Accept Request"}</button>  

@@ -89,7 +89,7 @@ const MyProfile = () => {
     <label className="add-profile-info-label">Add an image</label>
     <input type="file" onChange={handlePhoto} /> 
     <button onClick={uploadPhoto}>Upload photo</button>    
-    </span> : <img src={loggedInUser.photo} alt="profile-photo" />}  
+    </span> : <img src={loggedInUser.photo} alt="profile-photo" className="profile-photo" />}  
     {!loggedInUser.from ? <span className="from-container">
     <label className="add-profile-info-label">Tell others where you are from</label>  
     <input className="add-profile-info-input-from" type="text" onChange={handleFrom} />
