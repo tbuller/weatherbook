@@ -1,5 +1,7 @@
 const { response } = require("express");
 const User = require("../models/user");
+const fs = require("fs");
+const path = require("path");
 
 const UsersController = {
   Create: async (req, res, next) => {
@@ -72,24 +74,14 @@ const UsersController = {
     res.status(200).json({ message: "OK" });
   },
   UploadPhoto: (req, res, next) => {
-    // const { userId } = req.body;
-    // console.log(userId);
-    // console.log(req.body);
-    const file = req.files.photo;
-    console.log(file);
-
-    // const data = file.data;
-
-    // const mimeType = file.mimetype;
-    // const base64 = data.toString('base64');
-    // const dataURI = `data:${mimeType};base64,${base64}`;
-
-    // User.findByIdAndUpdate(userId, { photo: dataURI }, { new: true }, (err, user) => {
-    //   if (err) {
-    //     return res.status(500).json({ message: "Failed to save photo" });
-    //   }
-    //   return res.status(200).json({ message: "Photo uploaded successfully", user });
-    // });
+    const { userId, photo } = req.body;
+    User.findByIdAndUpdate({ _id: userId }, { photo: photo }, { new: true }, (err, user) => {
+      if (err) {
+        res.status(500).json({ message: "server error" });
+      } else {
+        res.status(200).json({ message: "OK", user: user });
+      }
+    })
   }
 }
 

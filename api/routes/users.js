@@ -9,6 +9,6 @@ router.post("/", UsersController.Create);
 router.patch("/", UsersController.Modify);
 router.patch("/request", UsersController.Request);
 router.patch("/acceptrequest", UsersController.AcceptRequest);
-router.patch("/uploadphoto", fileUpload(), UsersController.UploadPhoto);
+router.patch("/uploadphoto", UsersController.UploadPhoto);
 
 module.exports = router;

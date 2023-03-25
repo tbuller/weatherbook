@@ -44,12 +44,12 @@ const MyProfile = () => {
   }
 
   const uploadPhoto = () => {
-    const formData = new FormData();
-    formData.append('photo', photo);
-    formData.append('userId', loggedInUser._id);
     fetch("http://localhost:8080/users/uploadphoto", {
       method: "PATCH",
-      body: formData
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ userId: loggedInUser._id, photo: photo })
     })
       .then(response => response.json())
       .then(data => console.log(data))
@@ -64,8 +64,14 @@ const MyProfile = () => {
   }
 
   const handlePhoto = (event) => {
-    setPhoto(event.target.files[0]);
-    console.log((event.target.files[0]));
+    const file = event.target.files[0];
+    const reader = new FileReader();
+  
+    reader.onloadend = () => {
+      setPhoto(reader.result);
+    };
+
+    reader.readAsDataURL(file);
   }
   
   return (
