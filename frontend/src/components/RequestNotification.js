@@ -27,8 +27,7 @@ const RequestNotification = ({ requests, users, loggedInUser }) => {
       return (
       <div className="request-container" key={requester._id}>
       <img src={requester.photo || "/blank-photo.webp"} alt="profile-photo" className="profile-photo" />  
-      <div>{requester.username}</div>
-      <div>{requester.email}</div>
+      <div className="requester-username">{requester.username}</div>
       <button className="accept-request-button" onClick={() => acceptRequest(requester._id)}>{loggedInUser.friends.includes(requester._id) ? "Request accepted" : "Accept Request"}</button>  
       </div>
       )

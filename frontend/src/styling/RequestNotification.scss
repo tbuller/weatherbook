@@ -1,7 +1,41 @@
+.request-container {
+  display: flex;
+  width: 50%;
+  margin-left: 2%;
+  margin-bottom: 1%;
+  &:hover {
+    background-color: gray;
+  }
+}
+
 .profile-photo {
-  width: 8em;
-  height: 8em;  
+  width: 4em !important;
+  height: 4em !important;  
   object-fit: cover;
   object-position: 50% 50%; 
   border-radius: 8em;
+}
+
+.requester-username {
+  margin-left: 2%;
+  margin-top: 1.1em;
+  font-size: 1.2em;
+  font-weight: bold;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+  }
+}
+
+.accept-request-button {
+  margin-left: auto;
+  margin-right: 10%;
+  margin-top: 0.9em;
+  height: 3em;
+  width: 15%;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(38, 112, 201);
+  }
 }
