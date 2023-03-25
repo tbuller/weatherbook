@@ -85,11 +85,11 @@ const MyProfile = () => {
          )}
     </div>
     <div className="add-profile-info-container">
-    <span className="add-photo-container">
+    {!loggedInUser.photo ? <span className="add-photo-container">
     <label className="add-profile-info-label">Add an image</label>
     <input type="file" onChange={handlePhoto} /> 
     <button onClick={uploadPhoto}>Upload photo</button>    
-    </span>  
+    </span> : <img src={loggedInUser.photo} alt="profile-photo" />}  
     {!loggedInUser.from ? <span className="from-container">
     <label className="add-profile-info-label">Tell others where you are from</label>  
     <input className="add-profile-info-input-from" type="text" onChange={handleFrom} />
