@@ -43,6 +43,18 @@ const MyProfile = () => {
       .then(data => console.log(data))
   }
 
+  const uploadPhoto = () => {
+    const formData = new FormData();
+    formData.append('photo', photo);
+    formData.append('userId', loggedInUser._id);
+    fetch("http://localhost:8080/users/uploadphoto", {
+      method: "PATCH",
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
+
   const handleFrom = (event) => {
     setFrom(event.target.value);
   }
@@ -53,12 +65,9 @@ const MyProfile = () => {
 
   const handlePhoto = (event) => {
     setPhoto(event.target.files[0]);
+    console.log((event.target.files[0]));
   }
   
-  const showLoggedInUser = () => {
-    console.log(loggedInUser);
-  }
-
   return (
     <div>
     <h1>My profile</h1>
@@ -72,7 +81,8 @@ const MyProfile = () => {
     <div className="add-profile-info-container">
     <span className="add-photo-container">
     <label className="add-profile-info-label">Add an image</label>
-    <input type="file" onChange={handlePhoto} />     
+    <input type="file" onChange={handlePhoto} /> 
+    <button onClick={uploadPhoto}>Upload photo</button>    
     </span>  
     {!loggedInUser.from ? <span className="from-container">
     <label className="add-profile-info-label">Tell others where you are from</label>  
@@ -85,7 +95,7 @@ const MyProfile = () => {
     <button className="add-profile-info-button" onClick={updateAboutMe}>Add info to profile</button>
     </span> : <div>{loggedInUser.aboutMe}</div>}
     </div>
-    <button onClick={showLoggedInUser}>show logged in user</button>
+    {/* <button onClick={showLoggedInUser}>show logged in user</button> */}
     </div>
   )
 }
