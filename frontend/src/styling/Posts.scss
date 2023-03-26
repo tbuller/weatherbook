@@ -49,4 +49,12 @@
   .thoughts, .rain, .temperature, .precipitation, .windspeed, .radiation, .cloudcover, .posted-at {
     width: 100%;
   }
+
+  .profile-photo {
+    width: 4em !important;
+    height: 4em !important;  
+    object-fit: cover;
+    object-position: 50% 50%; 
+    border-radius: 8em;
+  }
 }

@@ -23,7 +23,7 @@ const Posts = () => {
     {posts.slice().reverse().map(post => 
       <div key={post._id} className="post-container">
       <div className="first-line-container">
-      <div className="profile-picture"><CgProfile /></div>  
+      <img className="profile-photo" alt="profile-photo" src={users.find(u => u._id === post.posterId)?.photo || "/blank-photo.webp"} />  
       <div className="username">{users.map(u => u._id === post.posterId && <p key={u._id}>{u.username}</p>)}</div>
       <div className="city">{post.city}</div>
       <div className="time">{(post.time).toString().slice(11, 16)}, {new Date().toDateString() === new Date(post.time).toDateString().slice(0, 10) ? "Today" : new Date(post.time).toDateString().split(' ').slice(0, 3).join(' ')}</div>
