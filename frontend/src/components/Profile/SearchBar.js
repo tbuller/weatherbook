@@ -12,6 +12,10 @@ const SearchBar = () => {
   const [selectedUser, setSelectedUser] = useState("");
   const [displayUsers, setDisplayUSers] = useState(false);
 
+  useEffect(() => {
+    setSelectedUser(users.filter(u => u.username === selectedUser));
+  }, [users])
+
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   }

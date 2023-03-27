@@ -6,20 +6,21 @@ import { AiOutlinePlus } from 'react-icons/ai';
 
 
 
-const UserInfo = (user) => {
+const UserInfo = ({ user }) => {
 
   const dispatch = useDispatch();
   const users = useSelector(state => state.users.users);
 
-  useEffect(() => {
-    fetch("http://localhost:8080/users")
-      .then(response => response.json())
-      .then(data => console.log(data))
-  }, [])
+  const [currentUser, setCurrentUser] = useState(user);
+  const [mounted, setMounted] = useState(false);
 
   const showUser = () => {
-    console.log(user);
+    console.log(currentUser);
   }
+
+  useEffect(() => {
+    setCurrentUser(user);
+  }, [user])
 
   const addConnection = () => {
     fetch("http://localhost:8080/users/request", {
@@ -27,19 +28,23 @@ const UserInfo = (user) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ requesterId: localStorage.getItem("userId"), requestedId: user.user._id })        
+      body: JSON.stringify({ requesterId: localStorage.getItem("userId"), requestedId: currentUser._id })        
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        dispatch(setUsers(data.users));
+        setCurrentUser(data.user);
+        console.log(data);
+      })
   }
 
   return (
     <div>
-    {user && 
+    {currentUser && 
     <div>
-    <div>{user.user.username}</div>
-    <div>{user.user.email}</div>
-    <button onClick={addConnection}>Connect with {user.user.username} <AiOutlinePlus className="plus-icon" /></button>
+    <div>{currentUser.username}</div>
+    <div>{currentUser.email}</div>
+    {currentUser.requests?.includes(localStorage.getItem("userId")) ? <button>Friend request sent</button> : <button onClick={addConnection}>Connect with {currentUser.username} <AiOutlinePlus className="plus-icon" /></button>}
     </div>}
     <button onClick={showUser}>show user</button>
     </div>

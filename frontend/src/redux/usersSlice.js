@@ -14,6 +14,9 @@ const usersSlice = createSlice({
     addUser: (state, action) => {
       console.log(action.payload);
       state.users.push(action.payload);
+    },
+    setSelectedUser: (state, action) => {
+      
     }
   }
 })
