@@ -1,20 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import '../../styling/SearchBar.scss';
 import UserInfo from '../Profile/UserInfo';
 
 const SearchBar = () => {
 
+  const users = useSelector(state => state.users.users);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedUser, setSelectedUser] = useState("");
   const [displayUsers, setDisplayUSers] = useState(false);
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:8080/users")
-      .then(response => response.json())
-      .then(data => setUsers(data.users))
-  }, [])
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);

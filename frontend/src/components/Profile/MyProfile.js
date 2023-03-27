@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import '../../styling/MyProfile.scss';
 
 const MyProfile = () => {
 
-  const [users, setUsers] = useState([]);
+  const users = useSelector(state => state.users.users);
+
   const [from, setFrom] = useState("");
   const [aboutMe, setABoutMe] = useState("");
   const [photo, setPhoto] = useState({});
@@ -14,7 +16,6 @@ const MyProfile = () => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
       .then(data => {
-        setUsers(data.users);
         data.users.map(u => u._id === localStorage.getItem("userId") ? setLoggedInUser(u) : null);
       })
   }, [])
