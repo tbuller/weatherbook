@@ -45,7 +45,13 @@ const UsersController = {
       if (err) {
         res.status(400).json({ message: "server error" });
       } else {
-        res.status(200).json({ message: "OK", user: user });
+        User.find({}, (err, users) => {
+          if (err) {
+            res.status(400).json({ message: "server error" });
+          } else {
+            res.status(200).json({ message: "OK", user: user, users: users });
+          }
+        })
       }
     })
   },
@@ -77,7 +83,13 @@ const UsersController = {
         return res.status(400).json({ message: "server error" });
       } 
     })
-    res.status(200).json({ message: "OK" });
+    User.find({}, (err, users) => {
+      if (err) {
+        res.status(400).json({ message: "server error" });
+      } else {
+        res.status(200).json({ message: "OK", users: users });
+      }
+    })
   },
   UploadPhoto: (req, res, next) => {
     const { userId, photo } = req.body;
@@ -85,7 +97,13 @@ const UsersController = {
       if (err) {
         res.status(500).json({ message: "server error" });
       } else {
-        res.status(200).json({ message: "OK", user: user });
+        User.find({}, (err, users) => {
+          if (err) {
+            res.status(400).json({ message: "OK" });
+          } else {
+            res.status(200).json({ message: "OK", user: user, users: users });
+          }
+        })
       }
     })
   }

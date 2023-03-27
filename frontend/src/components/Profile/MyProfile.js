@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUsers } from '../../redux/usersSlice';
 import '../../styling/MyProfile.scss';
 
 const MyProfile = () => {
 
+  const dispatch = useDispatch();
   const users = useSelector(state => state.users.users);
 
   const [from, setFrom] = useState("");
@@ -12,15 +14,15 @@ const MyProfile = () => {
   const [photo, setPhoto] = useState({});
   const [loggedInUser, setLoggedInUser] = useState({});
 
-  useEffect(() => {
-    fetch("http://localhost:8080/users")
-      .then(response => response.json())
-      .then(data => {
-        data.users.map(u => u._id === localStorage.getItem("userId") ? setLoggedInUser(u) : null);
-      })
-  }, [])
+  const findLoggedIn = () => {
+    users.map(u => u._id === localStorage.getItem("userId") ? setLoggedInUser(u) : null);
+  }
 
-  const updateFrom = (event) => {
+  useEffect(() => {
+    findLoggedIn()
+  }, [users])
+
+  const updateFrom = () => {
     fetch("http://localhost:8080/users", {
       method: "PATCH",
       headers: {
@@ -29,7 +31,7 @@ const MyProfile = () => {
       body: JSON.stringify({ from: from, userId: localStorage.getItem("userId") })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => dispatch(setUsers(data.users)))
   }
 
   const updateAboutMe = () => {
@@ -41,7 +43,7 @@ const MyProfile = () => {
       body: JSON.stringify({ aboutMe: aboutMe, userId: localStorage.getItem("userId") })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => dispatch(setUsers(data.users)))
   }
 
   const uploadPhoto = () => {
@@ -53,7 +55,7 @@ const MyProfile = () => {
       body: JSON.stringify({ userId: loggedInUser._id, photo: photo })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => dispatch(setUsers(data.users)))
   }
 
   const handleFrom = (event) => {
@@ -78,7 +80,7 @@ const MyProfile = () => {
   return (
     <div>
     <h1>My profile</h1>
-    <div className="myprofile-info-container">{users.filter(u => u._id === localStorage.getItem("userId"))
+    <div className="myprofile-info-container">{users?.filter(u => u._id === localStorage.getItem("userId"))
          .map(u => <div key={u._id}>
          <div>{u.username}</div>
          <div>{u.email}</div>

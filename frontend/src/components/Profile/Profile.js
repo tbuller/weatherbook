@@ -17,7 +17,7 @@ const Profile = () => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
       .then(data => dispatch(setUsers(data.users)))
-  })
+  }, [])
 
   const handleProfileClick = () => {
     setViewMyProfile(!viewMyProfile);
