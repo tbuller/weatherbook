@@ -5,6 +5,7 @@ import Comments from '../Comments/Comments';
 import CommentsForm from '../Comments/CommentsForm';
 import { GiSunRadiations } from 'react-icons/gi';
 import { CgProfile } from 'react-icons/cg';
+import { CiLocationOn } from 'react-icons/ci';
 import '../../styling/Posts.scss';
 import usersSlice from '../../redux/usersSlice';
 
@@ -25,7 +26,7 @@ const Posts = () => {
       <div className="first-line-container">
       <img className="profile-photo" alt="profile-photo" src={users.find(u => u._id === post.posterId)?.photo || "/blank-photo.webp"} />  
       <div className="username">{users.map(u => u._id === post.posterId && <p key={u._id}>{u.username}</p>)}</div>
-      <div className="city">{post.city}</div>
+      <div className="city"><CiLocationOn className="location-icon" />{post.city}</div>
       <div className="time">{(post.time).toString().slice(11, 16)}, {new Date().toDateString() === new Date(post.time).toDateString().slice(0, 10) ? "Today" : new Date(post.time).toDateString().split(' ').slice(0, 3).join(' ')}</div>
       </div>
       <div className="thoughts">{post.thoughts}</div>
