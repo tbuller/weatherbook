@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Navbar from './Navbar';
+import Navbar from '../Navbar';
 import RequestNotification from './RequestNotification';
 import PokeNotification from './PokeNotification';
 

@@ -3,9 +3,9 @@ import Landing from './components/Landing';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import MyHome from './components/MyHome';
-import Notifications from './components/Notifications';
-import Profile from './components/Profile';
-import Messages from './components/Messages';
+import Notifications from './components/Notifications/Notifications';
+import Profile from './components/Profile/Profile';
+import Messages from './components/Messages/Messages';
 import { useNavigate, Routes, Route } from 'react-router-dom';
 import './App.scss';
 

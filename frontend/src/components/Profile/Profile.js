@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar';
+import Navbar from '../Navbar';
 import { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import MyProfile from './MyProfile';

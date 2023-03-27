@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import '../styling/SearchBar.scss';
-import UserInfo from './UserInfo';
+import '../../styling/SearchBar.scss';
+import UserInfo from '../Profile/UserInfo';
 
 const SearchBar = () => {
 

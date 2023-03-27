@@ -1,10 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUsers } from '../../redux/usersSlice';
 import { AiOutlinePlus } from 'react-icons/ai';
 
 
 
 const UserInfo = (user) => {
+
+  const dispatch = useDispatch();
+  const users = useSelector(state => state.users.users);
 
   useEffect(() => {
     fetch("http://localhost:8080/users")

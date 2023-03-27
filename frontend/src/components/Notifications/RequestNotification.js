@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import UserInfo from './UserInfo';
-import '../styling/RequestNotification.scss';
+import UserInfo from '../Profile/UserInfo';
+import '../../styling/RequestNotification.scss';
 
 const RequestNotification = ({ requests, users, loggedInUser }) => {
 
