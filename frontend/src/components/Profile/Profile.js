@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsers } from '../../redux/usersSlice';
+import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
 import Navbar from '../Navbar';
 import SearchBar from './SearchBar';
 import MyProfile from './MyProfile';
@@ -16,7 +16,10 @@ const Profile = () => {
   useEffect(() => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
-      .then(data => dispatch(setUsers(data.users)))
+      .then(data => {
+        dispatch(setUsers(data.users));
+        dispatch(setLoggedInUser(data.users.find(u => u._id === localStorage.getItem("userId"))));
+      })
   }, [])
 
   const handleProfileClick = () => {
