@@ -11,6 +11,9 @@ const Messages = () => {
   const users = useSelector(state => state.users.users);
   const loggedInUser = useSelector(state => state.users.loggedInUser);
 
+  const [showFriends, setShowFriends] = useState(false);
+  const [chosenFriend, setChosenFriend] = useState({});
+
   useEffect(() => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
@@ -30,10 +33,21 @@ const Messages = () => {
     })
   }
 
+  const handleSelection = (event) => {
+    setChosenFriend(event.target.value);
+  }
+
   return (
     <div>
     <Navbar />
-    <button>New chat</button>
+    <select id="users" value={chosenFriend} onChange={handleSelection}>
+    {loggedInUser && loggedInUser.friends.map(f => {
+      return (
+      <option key={f._id} value={f._id}>{f.username}</option>
+      )
+    }
+      )}  
+    </select>
     </div>
   )
 }
