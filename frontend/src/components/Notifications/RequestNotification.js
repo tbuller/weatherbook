@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
+import { setUsers, setSelectedUser, setLoggedInUser } from '../../redux/usersSlice';
 import UserInfo from '../Profile/UserInfo';
 import '../../styling/RequestNotification.scss';
 
@@ -37,12 +37,12 @@ const RequestNotification = () => {
 
   const viewUser = (user) => {
     setShowRequester(!showRequester);
-    setViewedRequester(user);
+    dispatch(setSelectedUser(user));
   }
 
   const goBack = () => {
     setShowRequester(!showRequester);
-    setViewedRequester({});
+    dispatch(setSelectedUser({}));
   }
 
   const show = () => {
@@ -66,7 +66,7 @@ const RequestNotification = () => {
     </div> : 
     <div>
     <button onClick={goBack}>Go back to notifications</button>
-    <UserInfo user={viewedRequester} />  
+    <UserInfo />  
     </div>
     }
     </div>
