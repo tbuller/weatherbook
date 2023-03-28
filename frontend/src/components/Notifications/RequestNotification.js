@@ -25,7 +25,7 @@ const RequestNotification = () => {
       .then(response => response.json())
       .then(data => {
         dispatch(setUsers(data.users));
-        dispatch(setLoggedInUser(data.users.map(u => u.id === localStorage.getItem("userId"))));
+        dispatch(setLoggedInUser(data.users.find(u => u.id === localStorage.getItem("userId"))));
       })
   }
 
@@ -39,10 +39,15 @@ const RequestNotification = () => {
     setViewedRequester({});
   }
 
+  const show = () => {
+    console.log(loggedInUser);
+    console.log(users);
+  }
+
   return (
     <div className="request-notification-page-container">
     {!showRequester ? <div>
-    {loggedInUser.requests.map(r => {
+    {loggedInUser?.requests?.map(r => {
       const requester = users.find(u => u._id === r)
       return (
       <div className="request-container" key={requester._id}>
@@ -51,7 +56,8 @@ const RequestNotification = () => {
       <button className="accept-request-button" onClick={() => acceptRequest(requester._id)}>{loggedInUser.friends.includes(requester._id) ? "Request accepted" : "Accept Request"}</button>  
       </div>
       )
-      })}    
+      })}
+    <button onClick={show}>show</button>      
     </div> : 
     <div>
     <button onClick={goBack}>Go back to notifications</button>

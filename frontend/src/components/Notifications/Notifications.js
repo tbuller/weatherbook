@@ -17,7 +17,7 @@ const Notifications = () => {
       .then(response => response.json())
       .then(data => {
         dispatch(setUsers(data.users));
-        data.users.map(u => u._id === localStorage.getItem("userId") ? dispatch(setLoggedInUser(u)) : null);
+        data.users.find(u => u._id === localStorage.getItem("userId") ? dispatch(setLoggedInUser(u)) : null);
       })
   }, [])
 
@@ -30,7 +30,7 @@ const Notifications = () => {
     <Navbar />
     <h1>Your Notifications</h1>
     <div>
-    {loggedInUser && loggedInUser?.requests?.length > 0 && <RequestNotification requests={loggedInUser.requests} users={users} loggedInUser={loggedInUser} />}  
+    {loggedInUser && loggedInUser?.requests?.length > 0 && <RequestNotification />}  
     <button onClick={showLoggedIn}>show logged in</button>
     </div>
     </div>
