@@ -12,7 +12,7 @@ const Messages = () => {
   const loggedInUser = useSelector(state => state.users.loggedInUser);
 
   const [showFriends, setShowFriends] = useState(false);
-  const [chosenFriend, setChosenFriend] = useState({});
+  const [chosenFriend, setChosenFriend] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
@@ -22,6 +22,14 @@ const Messages = () => {
         dispatch(setLoggedInUser(data.users.find(u => u._id === localStorage.getItem("userId"))));
       })
   }, [])
+
+  useEffect(() => {
+    if (loggedInUser && loggedInUser.friends.length > 0) {
+      setChosenFriend(loggedInUser.friends[0]);
+    } else {
+      setChosenFriend("");
+    }
+  }, [loggedInUser, users])
 
   const createChat = () => {
     fetch("http://localhost:8080/chats", {
@@ -37,17 +45,23 @@ const Messages = () => {
     setChosenFriend(event.target.value);
   }
 
+  const showSelected = () => {
+    console.log(chosenFriend);
+  }
+
   return (
     <div>
     <Navbar />
     <select id="users" value={chosenFriend} onChange={handleSelection}>
     {loggedInUser && loggedInUser.friends.map(f => {
+      const friendObject = users.find(u => u._id === f);
       return (
-      <option key={f._id} value={f._id}>{f.username}</option>
+      <option key={friendObject._id} value={friendObject._id}>{friendObject.username}</option>
       )
     }
       )}  
     </select>
+    <button onClick={showSelected}>show</button>
     </div>
   )
 }
