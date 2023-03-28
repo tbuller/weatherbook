@@ -46,10 +46,8 @@ const Messages = () => {
     chats.forEach(c => {
       if (c.starterId === localStorage.getItem("userId") || c.responderId === localStorage.getItem("userId")) {
         dispatch(addToMyChats(c));
-        console.log("working");
       }
     })
-    console.log(chats);
   }, [chats])
 
   const createChat = () => {
