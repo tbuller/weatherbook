@@ -1,20 +1,23 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
 import Navbar from '../Navbar';
 import RequestNotification from './RequestNotification';
 import PokeNotification from './PokeNotification';
 
 const Notifications = () => {
 
-  const [users, setUsers] = useState([]);
-  const [loggedInUser, setLoggedInUser] = useState({});
+  const dispatch = useDispatch();
+  const users = useSelector(state => state.users.users);
+  const loggedInUser = useSelector(state => state.users.loggedInUser);
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
       .then(data => {
-        setUsers(data.users);
-        data.users.map(u => u._id === localStorage.getItem("userId") ? setLoggedInUser(u) : null);
+        dispatch(setUsers(data.users));
+        data.users.map(u => u._id === localStorage.getItem("userId") ? dispatch(setLoggedInUser(u)) : null);
       })
   }, [])
 
