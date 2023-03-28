@@ -8,6 +8,7 @@ const fileUpload = require("express-fileupload");
 const usersRouter = require("./routes/users");
 const postsRouter = require("./routes/posts");
 const commentsRouter = require("./routes/comments");
+const chatsRouter = require("./routes/chats");
 
 const app = express();
 app.use(fileUpload());
@@ -24,5 +25,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
 app.use("/comments", commentsRouter);
+app.use("chats", chatsRouter);
 
 module.exports = app;
