@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
-import { setChats } from '../../redux/chatsSlice';
+import { setChats, addToMyChats } from '../../redux/chatsSlice';
 import Navbar from '../Navbar';
 import Chat from'./Chat';
 
@@ -12,9 +12,10 @@ const Messages = () => {
   const users = useSelector(state => state.users.users);
   const loggedInUser = useSelector(state => state.users.loggedInUser);
   const chats = useSelector(state => state.chats.chats);
+  const myChats = useSelector(state => state.chats.myChats);
 
-  const [showFriends, setShowFriends] = useState(false);
   const [chosenFriend, setChosenFriend] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
@@ -26,12 +27,30 @@ const Messages = () => {
   }, [])
 
   useEffect(() => {
+    fetch("http://localhost:8080/chats")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setChats(data.chats));
+      })
+  }, [])  
+
+  useEffect(() => {
     if (loggedInUser && loggedInUser.friends.length > 0) {
       setChosenFriend(loggedInUser.friends[0]);
     } else {
       setChosenFriend("");
     }
   }, [loggedInUser, users])
+
+  useEffect(() => {
+    chats.forEach(c => {
+      if (c.starterId === localStorage.getItem("userId") || c.responderId === localStorage.getItem("userId")) {
+        dispatch(addToMyChats(c));
+        console.log("working");
+      }
+    })
+    console.log(chats);
+  }, [chats])
 
   const createChat = () => {
     fetch("http://localhost:8080/chats", {
@@ -51,6 +70,7 @@ const Messages = () => {
 
   const showSelected = () => {
     console.log(chosenFriend);
+    console.log(myChats);
   }
 
   return (
@@ -66,6 +86,7 @@ const Messages = () => {
       )}  
     </select>
     <button onClick={createChat}>Create chat</button>
+    <button onClick={showSelected}>show</button>
     </div>
   )
 }
