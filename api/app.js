@@ -25,6 +25,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
 app.use("/comments", commentsRouter);
-app.use("chats", chatsRouter);
+app.use("/chats", chatsRouter);
 
 module.exports = app;

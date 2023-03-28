@@ -37,8 +37,10 @@ const Messages = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({  })
+      body: JSON.stringify({ starterId: loggedInUser._id, responderId: chosenFriend })
     })
+    .then(response => response.json())
+    .then(data => console.log(data))
   }
 
   const handleSelection = (event) => {
@@ -61,7 +63,7 @@ const Messages = () => {
     }
       )}  
     </select>
-    <button onClick={showSelected}>show</button>
+    <button onClick={createChat}>Create chat</button>
     </div>
   )
 }
