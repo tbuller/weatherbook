@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
+import { setChats } from '../../redux/chatsSlice';
 import Navbar from '../Navbar';
 import Chat from'./Chat';
 
@@ -10,6 +11,7 @@ const Messages = () => {
   const dispatch = useDispatch();
   const users = useSelector(state => state.users.users);
   const loggedInUser = useSelector(state => state.users.loggedInUser);
+  const chats = useSelector(state => state.chats.chats);
 
   const [showFriends, setShowFriends] = useState(false);
   const [chosenFriend, setChosenFriend] = useState("");
