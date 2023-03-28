@@ -28,7 +28,6 @@ const Notifications = () => {
   return (
     <div>
     <Navbar />
-    <h1>Your Notifications</h1>
     <div>
     {loggedInUser && loggedInUser?.requests?.length > 0 && <RequestNotification />}  
     <button onClick={showLoggedIn}>show logged in</button>
