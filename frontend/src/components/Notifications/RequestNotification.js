@@ -14,6 +14,10 @@ const RequestNotification = () => {
   const [showRequester, setShowRequester] = useState(false);
   const [viewedRequester, setViewedRequester] = useState({});
 
+  useEffect(() => {
+    console.log("logged in under:", loggedInUser);
+  }, [loggedInUser])
+
   const acceptRequest = (requesterId) => {
     fetch("http://localhost:8080/users/acceptrequest", {
       method: "PATCH",
@@ -24,8 +28,10 @@ const RequestNotification = () => {
     })
       .then(response => response.json())
       .then(data => {
+        console.log(data.users);
+        console.log(data.users.find(u => u._id === localStorage.getItem("userId")));
         dispatch(setUsers(data.users));
-        dispatch(setLoggedInUser(data.users.find(u => u.id === localStorage.getItem("userId"))));
+        dispatch(setLoggedInUser(data.users.find(u => u._id === localStorage.getItem("userId"))));
       })
   }
 
@@ -48,7 +54,7 @@ const RequestNotification = () => {
     <div className="request-notification-page-container">
     {!showRequester ? <div>
     {loggedInUser?.requests?.map(r => {
-      const requester = users.find(u => u._id === r)
+      const requester = users.find(u => u._id === r);
       return (
       <div className="request-container" key={requester._id}>
       <img src={requester.photo || "/blank-photo.webp"} alt="profile-photo" className="profile-photo" />  
@@ -56,8 +62,7 @@ const RequestNotification = () => {
       <button className="accept-request-button" onClick={() => acceptRequest(requester._id)}>{loggedInUser.friends.includes(requester._id) ? "Request accepted" : "Accept Request"}</button>  
       </div>
       )
-      })}
-    <button onClick={show}>show</button>      
+      })}      
     </div> : 
     <div>
     <button onClick={goBack}>Go back to notifications</button>

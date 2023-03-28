@@ -76,21 +76,20 @@ const UsersController = {
     User.findOneAndUpdate({ _id: requestedId }, { $addToSet: { friends: requesterId } }, { new: true, useFindAndModify: false }, (err, requestedUser) => {
       if (err) {
         return res.status(400).json({ message: "server error" });
-      } 
-    })
-    User.findOneAndUpdate({ _id: requesterId }, { $addToSet: { friends: requestedId } }, { new: true, useFindAndModify: false }, (err, requesterUser) => {
-      if (err) {
-        return res.status(400).json({ message: "server error" });
-      } 
-    })
-    User.find({}, (err, users) => {
-      if (err) {
-        res.status(400).json({ message: "server error" });
-      } else {
-        res.status(200).json({ message: "OK", users: users });
       }
-    })
-  },
+      User.findOneAndUpdate({ _id: requesterId }, { $addToSet: { friends: requestedId }}, { new: true, useFindAndModify: false }, (err, requesterUser) => {
+        if (err) {
+          return res.status(400).json({ message: "server error" });
+        }
+        User.find({}, (err, users) => {
+          if (err) {
+            res.status(400).json({ message: "server error" });
+          } else {
+            res.status(200).json({ message: "OK", users: users });
+          }
+        })
+      })}) 
+    },
   UploadPhoto: (req, res, next) => {
     const { userId, photo } = req.body;
     User.findByIdAndUpdate({ _id: userId }, { photo: photo }, { new: true }, (err, user) => {

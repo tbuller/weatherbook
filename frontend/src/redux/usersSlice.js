@@ -11,7 +11,14 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     setUsers: (state, action) => {
-      state.users = action.payload;
+      action.payload.forEach(user => {
+        const existingUser = state.users.find(u => u._id === user._id);
+        if (existingUser) {
+          Object.assign(existingUser, user);
+        } else {
+          state.users.push(user);
+        }
+      })
     },
     addUser: (state, action) => {
       console.log(action.payload);
