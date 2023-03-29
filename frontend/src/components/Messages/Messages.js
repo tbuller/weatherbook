@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
-import { setChats, addToMyChats } from '../../redux/chatsSlice';
+import { setChats, addChat } from '../../redux/chatsSlice';
 import Navbar from '../Navbar';
 import Chat from'./Chat';
 
@@ -12,10 +12,8 @@ const Messages = () => {
   const users = useSelector(state => state.users.users);
   const loggedInUser = useSelector(state => state.users.loggedInUser);
   const chats = useSelector(state => state.chats.chats);
-  const myChats = useSelector(state => state.chats.myChats);
 
   const [chosenFriend, setChosenFriend] = useState("");
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
@@ -42,14 +40,6 @@ const Messages = () => {
     }
   }, [loggedInUser, users])
 
-  useEffect(() => {
-    chats.forEach(c => {
-      if (c.starterId === localStorage.getItem("userId") || c.responderId === localStorage.getItem("userId")) {
-        dispatch(addToMyChats(c));
-      }
-    })
-  }, [chats])
-
   const createChat = () => {
     fetch("http://localhost:8080/chats", {
       method: "post",
@@ -59,7 +49,9 @@ const Messages = () => {
       body: JSON.stringify({ starterId: loggedInUser._id, responderId: chosenFriend })
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      dispatch(addChat(data.chat));
+    })
   }
 
   const handleSelection = (event) => {
@@ -68,7 +60,6 @@ const Messages = () => {
 
   const showSelected = () => {
     console.log(chosenFriend);
-    console.log(myChats);
   }
 
   return (

@@ -13,11 +13,11 @@ const chatsSlice = createSlice({
     setChats: (state, action) => {
       state.chats = action.payload;
     },
-    addToMyChats: (state, action) => {
-      state.myChats.push(action.payload);
+    addChat: (state, action) => {
+      state.chats.push(action.payload);
     }
   }
 })
 
 export default chatsSlice.reducer;
-export const { setChats, addToMyChats } = chatsSlice.actions;
+export const { setChats, addChat } = chatsSlice.actions;
