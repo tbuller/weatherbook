@@ -1,0 +1,25 @@
+.message-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.chat-area-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.SideBar {
+  flex: 1;
+}
+
+.Chat {
+  flex: 3;
+}

@@ -6,6 +6,7 @@ import { setChats, addChat } from '../../redux/chatsSlice';
 import Navbar from '../Navbar';
 import SideBar from './SideBar';
 import Chat from'./Chat';
+import '../../styling/Messages.scss';
 
 const Messages = () => {
 
@@ -64,8 +65,9 @@ const Messages = () => {
   }
 
   return (
-    <div>
+    <div className="message-page-container">
     <Navbar />
+    <div className="main-container">
     <select id="users" value={chosenFriend} onChange={handleSelection}>
     {loggedInUser && loggedInUser.friends.map(f => {
       const friendObject = users.find(u => u._id === f);
@@ -77,7 +79,11 @@ const Messages = () => {
     </select>
     <button onClick={createChat}>Create chat</button>
     <button onClick={showSelected}>show</button>
+    <div className="chat-area-container">
     <SideBar />
+    <Chat />
+    </div>
+    </div>
     </div>
   )
 }
