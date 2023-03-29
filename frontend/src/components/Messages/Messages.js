@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
 import { setChats, addChat } from '../../redux/chatsSlice';
 import Navbar from '../Navbar';
+import SideBar from './SideBar';
 import Chat from'./Chat';
 
 const Messages = () => {
@@ -76,6 +77,7 @@ const Messages = () => {
     </select>
     <button onClick={createChat}>Create chat</button>
     <button onClick={showSelected}>show</button>
+    <SideBar />
     </div>
   )
 }
