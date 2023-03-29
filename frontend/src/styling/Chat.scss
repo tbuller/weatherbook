@@ -1,0 +1,12 @@
+.chats-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.chat-input-field {
+  width: 80%;
+  margin-top: auto;
+  margin-bottom: 2%;
+}

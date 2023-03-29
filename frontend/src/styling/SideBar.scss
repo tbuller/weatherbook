@@ -1,11 +1,12 @@
 .sidebar-container {
+  width: 20%;
   margin-top: 2em;
   border-top: 1px solid black;
 }
 
 .individual-chat {
   display: flex;
-  width: 20%;
+  width: 100%;
   border-bottom: 1px solid black;
   &:hover {
     background-color: gray;
