@@ -1,16 +1,25 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedChat } from '../../redux/chatsSlice';
+import '../../styling/SideBar.scss';
 
 const SideBar = () => {
 
-  const users = useSelector(state => state.users.users)
-  const chats = useSelector(state => state.chats.chats);
+  const dispatch = useDispatch();
+  const users = useSelector(state => state.users.users);
   const loggedInUser = useSelector(state => state.users.loggedInUser);
+  const chats = useSelector(state => state.chats.chats);
+  const selectedChat = useSelector(state => state.chats.selectedChat);
+
+  const handleChat = (chat) => {
+    dispatch(setSelectedChat(chat));
+  }
 
   const show = () => {
     console.log(chats);
     console.log(loggedInUser._id);
+    console.log(selectedChat);
   }
 
   return (
@@ -21,8 +30,10 @@ const SideBar = () => {
       const otherUser = isStarter ? users.find(u => u._id === c.responderId) : users.find(u => u._id === c.starterId);
       return userIsInvolved &&
       <div key={c._id} className="individual-chat">
-      <img alt="profile-photo" className="profile-photo" src={otherUser.photo || "/blank-photo.webp"} />
-      <div>{otherUser.username}</div>
+      <div className="chat-profile-photo-container">  
+      <img alt="chat-profile-photo" className="profile-photo" src={otherUser.photo || "/blank-photo.webp"} onClick={() => handleChat(c)} />
+      </div>
+      <div className="chat-other-user-username" onClick={() => handleChat(c)}>{otherUser.username}</div>
       </div>
     })}
     <button onClick={show}>show</button>

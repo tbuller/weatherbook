@@ -1,0 +1,28 @@
+.individual-chat {
+  display: flex;
+  width: 20%;
+  margin-bottom: 1%;
+  &:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
+}
+
+.chat-profile-photo-container {
+  margin-left: 0.5em;
+}
+
+.chat-profile-photo {
+  width: 4em;
+  height: 4em; 
+  object-fit: cover;
+  object-position: 50% 50%; 
+  border-radius: 8em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.chat-other-user-username {
+  margin-left: 10%;
+}
