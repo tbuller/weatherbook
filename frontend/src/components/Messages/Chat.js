@@ -42,7 +42,7 @@ const Chat = () => {
     <div className="chats-container">
     <div className="messages-container">
     {selectedChat && selectedChat.messages && selectedChat.messages.map(m => {
-      return m.senderId === loggedInUser._id ? <div className="sent-message">{m.messageContent}</div> : <div className="received-message">{m.messageContent}</div>
+      return m.senderId === loggedInUser._id ? <div className="sent-message" key={Math.random()}>{m.messageContent}</div> : <div className="received-message" key={Math.random()}>{m.messageContent}</div>
     })}  
     </div>
     <input className="chat-input-field" type="text" onChange={handleMessageContent} />

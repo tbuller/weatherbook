@@ -16,12 +16,6 @@ const SideBar = () => {
     dispatch(setSelectedChat(chat));
   }
 
-  const show = () => {
-    console.log(chats);
-    console.log(loggedInUser._id);
-    console.log(selectedChat);
-  }
-
   return (
     <div className="sidebar-container">
     {loggedInUser && chats && chats.map(c => {
@@ -29,14 +23,13 @@ const SideBar = () => {
       const isStarter = c.starterId === loggedInUser._id;
       const otherUser = isStarter ? users.find(u => u._id === c.responderId) : users.find(u => u._id === c.starterId);
       return userIsInvolved &&
-      <div key={c._id} className="individual-chat" onClick={() => handleChat(c)}>
+      <div key={c._id} className={selectedChat._id === c._id ? "individual-selected-chat" : "individual-chat"} onClick={() => handleChat(c)}>
       <div className="chat-profile-photo-container">  
       <img alt="chat-profile-photo" className="profile-photo" src={otherUser.photo || "/blank-photo.webp"} />
       </div>
       <div className="chat-other-user-username">{otherUser.username}</div>
       </div>
     })}
-    <button onClick={show}>show</button>
     </div>
   )
 }
