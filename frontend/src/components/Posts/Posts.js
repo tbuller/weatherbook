@@ -11,7 +11,8 @@ import usersSlice from '../../redux/usersSlice';
 
 const Posts = () => {
 
-  const users = useSelector(state => state.users.users);  
+  const users = useSelector(state => state.users.users); 
+  const loggedInUser = useSelector(state => state.users.loggedInUser); 
   const posts = useSelector(state => state.posts.posts);
 
   const showPosts = () => {
@@ -21,7 +22,8 @@ const Posts = () => {
   return (
     <div>
     <div className="posts-container">
-    {posts.slice().reverse().map(post => 
+    {users && loggedInUser && posts && posts.slice().reverse().map(post => 
+      (users.find(u => u._id === post.posterId).friends.includes(loggedInUser._id) || post.posterId === loggedInUser._id) &&
       <div key={post._id} className="post-container">
       <div className="first-line-container">
       <img className="profile-photo" alt="profile-photo" src={users.find(u => u._id === post.posterId)?.photo || "/blank-photo.webp"} />  
