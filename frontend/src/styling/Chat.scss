@@ -11,10 +11,16 @@
   margin-bottom: 2%;
 }
 
+.sent-message,
+.received-message {
+  width: 100%;
+  clear: both;
+}
+
 .sent-message {
-  float: right;
+  text-align: right;
 }
 
 .received-message {
-  float: left;
+  text-align: left;
 }
