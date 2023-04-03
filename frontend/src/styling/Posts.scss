@@ -39,6 +39,10 @@
     .city {
       font-style: italic;
       font-weight: bold;
+
+      .location-icon {
+        font-size: 2em;
+      }
     }
     
     .time {
