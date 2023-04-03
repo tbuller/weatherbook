@@ -24,4 +24,9 @@
     transform: scale(1.1);
     cursor: pointer;
   }
+
+  &.selected {
+    background-color: green;
+    border-color: green;
+  }
 }

@@ -98,7 +98,7 @@ const PostForm = () => {
     <div>{dayButtons}</div>
     <button onClick={getData}>get data</button>
     {hoursToDisplay && hoursToDisplay?.map((time, index) => 
-      <button id={time} key={index} value={index} className="time-button" onClick={handleTime}>{new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</button>
+      <button id={time} key={index} value={index} className={`time-button ${timeIndex === (index + (selectedDay * 24)) ? 'selected' : ''}`} onClick={handleTime}>{new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</button>
       )}
     <WeatherInfo 
     rain={weatherData.rain?.[timeIndex]}
