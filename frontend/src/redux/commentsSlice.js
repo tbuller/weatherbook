@@ -13,9 +13,15 @@ const commentSlice = createSlice({
     },
     addComment: (state, action) => {
       state.comments.push(action.payload);
+    }, 
+    updateComment: (state, action) => {
+      const commentIndex = state.comments.findIndex(c => c._id === action.payload._id);
+      if (commentIndex >= 0) {
+        state.comments[commentIndex] = action.payload;
+      }
     }
   }
 })
 
 export default commentSlice.reducer;
-export const { setComments, addComment } = commentSlice.actions;
+export const { setComments, addComment, updateComment } = commentSlice.actions;
