@@ -42,6 +42,7 @@ const PostForm = () => {
   useEffect(() => {
     setStartIndex(selectedDay * 24);
     setEndIndex((selectedDay * 24) + 24);
+    setTimeIndex(0 + (selectedDay * 24))
   }, [selectedDay])
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const PostForm = () => {
 
   const handleTime = (event) => {
     setTime(event.target.id);
-    setTimeIndex(event.target.value);
+    setTimeIndex(parseInt(event.target.value) + startIndex);
     setShowConditions(!showConditions);
   }
 
