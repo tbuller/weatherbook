@@ -19,6 +19,17 @@ const Posts = () => {
     console.log(posts);
   }
 
+  const formatDate = (postTime) => {
+    const postDate = new Date(postTime);
+    const today = new Date();
+
+    if (postDate.toDateString() === today.toDateString()) {
+      return `Today, ${postDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+    }
+  
+    return `${postDate.getDate().toString().padStart(2, '0')}/${(postDate.getMonth() + 1).toString().padStart(2, '0')}, ${postDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+  }
+
   return (
     <div>
     <div className="posts-container">
@@ -29,7 +40,7 @@ const Posts = () => {
       <img className="profile-photo" alt="profile-photo" src={users.find(u => u._id === post.posterId)?.photo || "/blank-photo.webp"} />  
       <div className="username">{users.map(u => u._id === post.posterId && <p key={u._id}>{u.username}</p>)}</div>
       <div className="city"><CiLocationOn className="location-icon" />{post.city}</div>
-      <div className="time">{(post.time).toString().slice(11, 16)}, {new Date().toDateString() === new Date(post.time).toDateString().slice(0, 10) ? "Today" : new Date(post.time).toDateString().split(' ').slice(0, 3).join(' ')}</div>
+      <div className="time">{formatDate(post.time)}</div>
       </div>
       <div className="thoughts">{post.thoughts}</div>
       {post.rain !== null && <div className="rain">Rain: {post.rain}mm</div>}

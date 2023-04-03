@@ -37,17 +37,20 @@
     }
     
     .city {
+      display: flex;
+      align-items: center;
       font-style: italic;
       font-weight: bold;
 
       .location-icon {
         font-size: 2em;
+        margin-right: 0.3em;
       }
     }
     
     .time {
       font-size: 0.8rem;
-      margin-left: 65%;
+      // margin-left: 65%;
     }
   }
   
