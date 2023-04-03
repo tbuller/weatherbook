@@ -81,7 +81,7 @@ const PostForm = () => {
   }
 
   const dayButtons = generateDayLabels().map((l, i) => (
-    <button key={i} onClick={() => setSelectedDay(i)}>{l}</button>
+    <button className={`day-button ${i === selectedDay ? "selected" : ""}`} key={i} onClick={() => setSelectedDay(i)}>{l}</button>
   ))
 
   return (
@@ -96,7 +96,6 @@ const PostForm = () => {
       <option value="Rome">Rome</option>
     </select>
     <div>{dayButtons}</div>
-    <button onClick={getData}>get data</button>
     {hoursToDisplay && hoursToDisplay?.map((time, index) => 
       <button id={time} key={index} value={index} className={`time-button ${timeIndex === (index + (selectedDay * 24)) ? 'selected' : ''}`} onClick={handleTime}>{new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</button>
       )}
