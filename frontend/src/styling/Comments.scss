@@ -1,0 +1,28 @@
+.comment-container {
+  display: block;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0.5em;
+  background-color: rgb(135, 206, 235);
+}
+
+.photo-username-container {
+  display: flex;
+}
+
+.like-counter-container {
+  display: flex;
+}
+
+.commenter-photo {
+  margin-left: 0.5em;
+  font-size: 0.7em;
+}
+
+.commenter-username {
+  margin-left: 0.5em;
+}
+
+.comment-content {
+  margin-left: 0.5em;
+}

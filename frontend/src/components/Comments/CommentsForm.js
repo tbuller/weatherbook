@@ -32,7 +32,7 @@ const CommentsForm = (postId) => {
   }
 
   return (
-    <div className="comment-container">
+    <div className="comment-form-container">
     <button className="share-thoughts-button" onClick={showField}>{showForm ? "hide comment field" : "share your thoughts"}</button>  
     {showForm && 
     <div>
