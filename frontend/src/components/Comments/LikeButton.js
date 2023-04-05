@@ -7,10 +7,19 @@ import '../../styling/LikeButton.scss';
 
 const LikeButton = ({ commentId }) => {
 
-  const dispatch = useDispatch();
+  const [isLiked, setIsLiked] = useState(false);
 
+  const dispatch = useDispatch();
   const comments = useSelector(state => state.comments.comments);
   const loggedInUser = useSelector(state => state.users.loggedInUser);
+
+  useEffect(() => {
+    const relevantComment = comments.find(c => c._id === commentId);
+
+    if (loggedInUser && relevantComment && relevantComment.likes.includes(loggedInUser._id)) {
+      setIsLiked(true);
+    }
+  }, [loggedInUser, comments, commentId])
 
   const likeComment = () => {
     fetch("http://localhost:8080/comments", {
@@ -28,7 +37,7 @@ const LikeButton = ({ commentId }) => {
 
   return (
     <div>
-    <button className="like-button" onClick={likeComment}><AiOutlineLike /></button>  
+    <button className={`like-button ${isLiked ? 'liked' : ''}`} onClick={likeComment}><AiOutlineLike /></button>  
     </div>
   )
 }
