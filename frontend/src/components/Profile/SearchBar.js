@@ -32,6 +32,7 @@ const SearchBar = () => {
 
   const handleUserSelection = (id) => {
     dispatch(setSelectedUser(users.find(u => u._id === id)));
+    setSearchTerm("");
   }
 
   const showLoggedIn = () => {

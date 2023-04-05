@@ -52,9 +52,10 @@ const UserInfo = () => {
   }
 
   return (
-    <div className="user-info-container">
-    {selectedUser && 
     <div>
+    {selectedUser && 
+    <div className="user-info-container">
+    <img className="profile-photo user-info-photo" src={selectedUser.photo || "/blank-photo.webp"} />
     <div>{selectedUser.username}</div>
     <div>{selectedUser.email}</div>
     {selectedUser.friends?.includes(loggedInUser._id) ? <button>Friends</button> : selectedUser.requests?.includes(loggedInUser._id) ?  <button>Friend request sent</button> : loggedInUser.requests?.includes(selectedUser._id) ? <button onClick={() => acceptRequest(selectedUser._id)}>Accept request</button> : <button onClick={addConnection}>Connect with {selectedUser.username} <AiOutlinePlus className="plus-icon" /></button>}
