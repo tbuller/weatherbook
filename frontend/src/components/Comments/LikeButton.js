@@ -18,6 +18,8 @@ const LikeButton = ({ commentId }) => {
 
     if (loggedInUser && relevantComment && relevantComment.likes.includes(loggedInUser._id)) {
       setIsLiked(true);
+    } else {
+      setIsLiked(false);
     }
   }, [loggedInUser, comments, commentId])
 
@@ -52,12 +54,14 @@ const LikeButton = ({ commentId }) => {
       body: JSON.stringify({ commentId: commentId, likerId: loggedInUser._id })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        dispatch(updateComment(data.comment));
+      })
   }
 
   return (
     <div>
-    <button className={`like-button ${isLiked ? 'liked' : ''}`} onClick={likeComment}><AiOutlineLike /></button>  
+    <button className={`like-button ${isLiked ? 'liked' : ''}`} onClick={handleLikeButton}><AiOutlineLike /></button>  
     </div>
   )
 }

@@ -22,9 +22,19 @@ const CommentsController = {
   },
   Like: (req, res, next) => {
     const { likerId, commentId } = req.body
-    Comment.findOneAndUpdate({ _id: commentId, likes: { $nin: [likerId] } }, { $pull: { likes: likerId }, $addToSet: { likes: likerId } }, { new: true }, (err, comment) => {
+    Comment.findOneAndUpdate({ _id: commentId, likes: { $nin: [likerId] } }, { $addToSet: { likes: likerId } }, { new: true }, (err, comment) => {
       if (err) {
         res.status(400).json({ message: "server error" });
+      } else {
+        res.status(200).json({ message: "OK", comment: comment });
+      }
+    })
+  },
+  Unlike: (req, res, next) => {
+    const { likerId, commentId } = req.body;
+    Comment.findOneAndUpdate({ _id: commentId }, { $pull: { likes: likerId } }, { new: true }, (err, comment) => {
+      if (err) {
+        res.status(400).json({ messahe: "error" });
       } else {
         res.status(200).json({ message: "OK", comment: comment });
       }
