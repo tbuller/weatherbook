@@ -13,7 +13,7 @@ const PostForm = () => {
   const [selectedDay, setSelectedDay] = useState(0);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(23);
-  const [hoursToDisplay, setHoursToDisplay] = useState([]);
+  const [hoursToDisplay, setHoursToDisplay] = useState(weatherData?.time?.slice(startIndex, endIndex) || []);
   const [time, setTime] = useState("");
   const [timeIndex, setTimeIndex] = useState(0);
   const [showConditions, setShowConditions] = useState(false);
@@ -51,13 +51,6 @@ const PostForm = () => {
 
   const handleSelectedCity = (event) => {
     setSelectedCity(event.target.value);
-  }
-
-  const getData = () => {
-    console.log(weatherData);
-    console.log(weatherData.temperature_2m[5]);
-    console.log(timeIndex);
-    console.log(time);
   }
 
   const handleTime = (event) => {
