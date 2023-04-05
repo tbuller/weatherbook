@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoggedInUser, setSelectedUser } from '../../redux/usersSlice';
-import '../../styling/SearchBar.scss';
+import { setSelectedUser } from '../../redux/usersSlice';
+import { setPosts } from '../../redux/postsSlice';
 import UserInfo from '../Profile/UserInfo';
+import Posts from '../Posts/Posts';
+import '../../styling/SearchBar.scss';
 
 const SearchBar = () => {
 
@@ -11,9 +13,24 @@ const SearchBar = () => {
   const users = useSelector(state => state.users.users);
   const loggedInUser = useSelector(state => state.users.loggedInUser);
   const selectedUser = useSelector(state => state.users.selectedUser);
+  const posts = useSelector(state => state.posts.posts);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [displayUsers, setDisplayUSers] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/posts")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setPosts(data.posts));
+      })
+  }, [])
+
+  useEffect(() => {
+    if (selectedUser) {
+      dispatch(setPosts(posts.filter(p => p.posterId === selectedUser._id)));
+    }
+  }, [selectedUser])
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -43,6 +60,7 @@ const SearchBar = () => {
       </ul>
     )}
     {selectedUser && <UserInfo />}
+    {selectedUser && <Posts />}
     </div>
   )
 }

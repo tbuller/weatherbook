@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
+import { setPosts } from '../../redux/postsSlice';
 import Navbar from '../Navbar';
 import SearchBar from './SearchBar';
 import MyProfile from './MyProfile';
@@ -30,7 +31,7 @@ const Profile = () => {
     <div>
     <Navbar /> 
     <button onClick={handleProfileClick}>Switch</button> 
-    {viewMyProfile ? <MyProfile /> : <SearchBar users={users} />}
+    {viewMyProfile ? <MyProfile /> : <SearchBar />}
     </div>
   )
 }

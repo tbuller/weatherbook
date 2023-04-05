@@ -127,7 +127,7 @@ const MyProfile = () => {
     <label className="add-profile-info-label">Add some more information about yourself</label>
     <input className="add-profile-info-input-aboutme" type="text" onChange={handleAboutMe} />
     <button className="add-profile-info-button" onClick={updateAboutMe}>Add info to profile</button>
-    </span> : <div>{loggedInUser.aboutMe}</div>}
+    </span> : <div className="about-me-text">{loggedInUser.aboutMe}</div>}
     </div>
     {loggedInUser && users && posts && <Posts />}
     </div>
