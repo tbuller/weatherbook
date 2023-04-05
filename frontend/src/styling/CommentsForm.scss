@@ -1,0 +1,19 @@
+.comment-button {
+  margin-left: 1em;
+  border-radius: 2em;
+  background-color: rgb(36, 190, 36);
+  border-color: rgb(36, 190, 36);
+  height: 3em;
+  width: 6em;
+
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+    border-color: white;
+  }
+}
+
+.share-thoughts-button {
+  margin-bottom: 1em;
+  width: 12em;
+}

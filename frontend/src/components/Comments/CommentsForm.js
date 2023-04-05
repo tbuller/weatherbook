@@ -1,12 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addComment } from "../../redux/commentsSlice";
+import { addComment } from '../../redux/commentsSlice';
+import '../../styling/CommentsForm.scss';
 
 const CommentsForm = (postId) => {
 
   const dispatch = useDispatch();
 
+  const [showForm, setShowForm] = useState(false);
   const [comment, setComment] = useState("");
 
   const handleComment = (event) => {
@@ -25,10 +27,18 @@ const CommentsForm = (postId) => {
       .then(data => dispatch(addComment(data.comment)))
   }
 
+  const showField = () => {
+    setShowForm(!showForm);
+  }
+
   return (
     <div className="comment-container">
+    <button className="share-thoughts-button" onClick={showField}>{showForm ? "hide comment field" : "share your thoughts"}</button>  
+    {showForm && 
+    <div>
     <input type="text" onChange={handleComment} />
-    <button onClick={createComment}>Add comment</button>
+    <button className="comment-button" onClick={createComment}>Comment</button>
+    </div>}
     </div>
   )
 }
