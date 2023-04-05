@@ -55,7 +55,6 @@ const Posts = () => {
       </div>
       )}    
     </div>
-    <button onClick={showPosts}>show posts button</button>
     </div>
   )
 }

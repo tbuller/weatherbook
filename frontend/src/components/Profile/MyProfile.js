@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsers } from '../../redux/usersSlice';
+import { setPosts } from '../../redux/postsSlice';
+import Posts from '../Posts/Posts';
 import '../../styling/MyProfile.scss';
 
 const MyProfile = () => {
@@ -21,6 +23,14 @@ const MyProfile = () => {
   useEffect(() => {
     findLoggedIn()
   }, [users])
+
+  useEffect(() => {
+    fetch("http://localhost:8080/posts")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setPosts(data.posts.filter(p => p.posterId === loggedInUser._id)));
+      })
+  }, [])
 
   const updateFrom = () => {
     fetch("http://localhost:8080/users", {
@@ -104,7 +114,7 @@ const MyProfile = () => {
     <button className="add-profile-info-button" onClick={updateAboutMe}>Add info to profile</button>
     </span> : <div>{loggedInUser.aboutMe}</div>}
     </div>
-    {/* <button onClick={showLoggedInUser}>show logged in user</button> */}
+    <Posts />
     </div>
   )
 }

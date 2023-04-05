@@ -13,7 +13,7 @@ const postsSlice = createSlice({
     },
     addPost: (state, action) => {
       state.posts.push(action.payload);
-    }
+    },
   }
 })
 
