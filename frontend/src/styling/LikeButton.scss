@@ -1,7 +1,8 @@
 .like-button {
-  width: 10%;
+  height: 1.5em;
+  width: 1.5em;
   font-size: 1vw;
-  padding-top: 1%;
+  padding-top: 0.5%;
   border-radius: 10px;
   transition: all 0.15s ease-out; 
 
@@ -9,7 +10,7 @@
     background-color: blue;
     color: white;
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   &.liked {

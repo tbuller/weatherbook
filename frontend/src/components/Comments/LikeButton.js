@@ -21,6 +21,14 @@ const LikeButton = ({ commentId }) => {
     }
   }, [loggedInUser, comments, commentId])
 
+  const handleLikeButton = () => {
+    if (!isLiked) {
+      likeComment();
+    } else {
+      unlikeComment();
+    }
+  }
+
   const likeComment = () => {
     fetch("http://localhost:8080/comments", {
       method: "PATCH",
@@ -33,6 +41,18 @@ const LikeButton = ({ commentId }) => {
       .then(data => {
         dispatch(updateComment(data.comment));
       })
+  }
+
+  const unlikeComment = () => {
+    fetch("http://localhost:8080/comments/unlike", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ commentId: commentId, likerId: loggedInUser._id })
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
   }
 
   return (
