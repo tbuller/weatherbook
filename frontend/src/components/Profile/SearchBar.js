@@ -22,14 +22,8 @@ const SearchBar = () => {
     fetch("http://localhost:8080/posts")
       .then(response => response.json())
       .then(data => {
-        dispatch(setPosts(data.posts));
+        selectedUser && dispatch(setPosts(data.posts.filter(p => p.posterId === selectedUser._id)));
       })
-  }, [])
-
-  useEffect(() => {
-    if (selectedUser) {
-      dispatch(setPosts(posts.filter(p => p.posterId === selectedUser._id)));
-    }
   }, [selectedUser])
 
   const handleSearch = (event) => {

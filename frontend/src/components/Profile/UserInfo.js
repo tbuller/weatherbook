@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLoggedInUser, setSelectedUser } from '../../redux/usersSlice';
 import { setUsers } from '../../redux/usersSlice';
 import { AiOutlinePlus } from 'react-icons/ai';
-
-
+import '../../styling/UserInfo.scss';
 
 const UserInfo = () => {
 
@@ -53,14 +52,13 @@ const UserInfo = () => {
   }
 
   return (
-    <div>
+    <div className="user-info-container">
     {selectedUser && 
     <div>
     <div>{selectedUser.username}</div>
     <div>{selectedUser.email}</div>
     {selectedUser.friends?.includes(loggedInUser._id) ? <button>Friends</button> : selectedUser.requests?.includes(loggedInUser._id) ?  <button>Friend request sent</button> : loggedInUser.requests?.includes(selectedUser._id) ? <button onClick={() => acceptRequest(selectedUser._id)}>Accept request</button> : <button onClick={addConnection}>Connect with {selectedUser.username} <AiOutlinePlus className="plus-icon" /></button>}
     </div>}
-    <button onClick={showUser}>show user</button>
     </div>
   )
 }
