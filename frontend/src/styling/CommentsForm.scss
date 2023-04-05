@@ -2,6 +2,29 @@
   display: block;
 }
 
+.share-thoughts-button {
+  margin-bottom: 1em;
+  height: 2em;
+  width: 14em;
+  border-radius: 1em;
+  background-color: rgb(135, 206, 235);
+  border-color: rgb(135, 206, 235);
+  font-size: 1em;
+
+  &:hover {
+    cursor: pointer;
+    background-color: green;
+    border-color: green;
+    color: white;
+  }
+}
+
+.comment-input-field {
+  height: 3em;
+  width: 60em;
+  margin-left: 0;
+}
+
 .comment-button {
   margin-left: 1em;
   border-radius: 2em;
@@ -15,9 +38,4 @@
     background-color: white;
     border-color: white;
   }
-}
-
-.share-thoughts-button {
-  margin-bottom: 1em;
-  width: 12em;
 }

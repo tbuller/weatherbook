@@ -1,14 +1,16 @@
 .like-button {
-  height: 1.5em;
-  width: 1.5em;
-  font-size: 1vw;
+  height: 1.2em;
+  width: 1.2em;
+  font-size: 1.5em;
   padding-top: 0.5%;
+  padding-right: 1.2em;
   border-radius: 10px;
   transition: all 0.15s ease-out; 
 
   &:hover {
     cursor: pointer;
     transform: scale(1.05);
+    background-color: green;
   }
 
   &.liked {

@@ -36,7 +36,7 @@ const CommentsForm = (postId) => {
     <button className="share-thoughts-button" onClick={showField}>{showForm ? "hide comment field" : "share your thoughts"}</button>  
     {showForm && 
     <div>
-    <input type="text" onChange={handleComment} />
+    <input className="comment-input-field" type="text" onChange={handleComment} />
     <button className="comment-button" onClick={createComment}>Comment</button>
     </div>}
     </div>

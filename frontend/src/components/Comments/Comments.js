@@ -11,7 +11,7 @@ const Comments = ({ postId }) => {
 
   return (
     <div className="comments-container">
-    <h1>Comments</h1>
+    <h3>Comments</h3>
     {comments.map(comment => {
       if (comment?.postId === postId) {
         const commenter = users.find(u => u._id === comment.commenterId);

@@ -4,6 +4,8 @@
   align-items: center;
   margin-bottom: 0.5em;
   background-color: rgb(135, 206, 235);
+  padding: 0.5em;
+  border-radius: 1em;
 }
 
 .photo-username-container {
@@ -15,14 +17,22 @@
 }
 
 .commenter-photo {
-  margin-left: 0.5em;
   font-size: 0.7em;
+  margin-bottom: 0.5em;
 }
 
 .commenter-username {
+  margin-top: 0.8em;
   margin-left: 0.5em;
+  font-weight: bold;
 }
 
 .comment-content {
-  margin-left: 0.5em;
+  margin-left: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+.likes-count {
+  margin-top: 0.2em;
+  margin-left: 0.2em;
 }
