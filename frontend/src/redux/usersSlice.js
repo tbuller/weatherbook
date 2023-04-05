@@ -21,8 +21,13 @@ const usersSlice = createSlice({
       })
     },
     addUser: (state, action) => {
-      console.log(action.payload);
       state.users.push(action.payload);
+    },
+    updateUser: (state, action) => {
+      const userIndex = state.users.findIndex(u => u._id === action.payload._id);
+      if (userIndex >= 0) {
+        state.users[userIndex] = action.payload;
+      }
     },
     setSelectedUser: (state, action) => {
       state.selectedUser = action.payload;
@@ -34,4 +39,4 @@ const usersSlice = createSlice({
 })
 
 export default usersSlice.reducer;
-export const { setUsers, addUser, setSelectedUser, setLoggedInUser } = usersSlice.actions;
+export const { setUsers, addUser, updateUser, setSelectedUser, setLoggedInUser } = usersSlice.actions;

@@ -12,7 +12,7 @@ const Comments = ({ postId }) => {
   return (
     <div className="comments-container">
     <h3>Comments</h3>
-    {comments.map(comment => {
+    {comments && comments.map(comment => {
       if (comment?.postId === postId) {
         const commenter = users.find(u => u._id === comment.commenterId);
         return ( 

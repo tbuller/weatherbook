@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsers } from '../../redux/usersSlice';
+import { setUsers, updateUser } from '../../redux/usersSlice';
+import { setComments } from '../../redux/commentsSlice';
 import { setPosts } from '../../redux/postsSlice';
 import Posts from '../Posts/Posts';
 import '../../styling/MyProfile.scss';
@@ -10,6 +11,7 @@ const MyProfile = () => {
 
   const dispatch = useDispatch();
   const users = useSelector(state => state.users.users);
+  const posts = useSelector(state => state.posts.posts);
 
   const [from, setFrom] = useState("");
   const [aboutMe, setABoutMe] = useState("");
@@ -30,7 +32,15 @@ const MyProfile = () => {
       .then(data => {
         dispatch(setPosts(data.posts.filter(p => p.posterId === loggedInUser._id)));
       })
-  }, [])
+  }, [loggedInUser])
+
+  useEffect(() => {
+    fetch("http://localhost:8080/comments")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setComments(data.comments));
+      })
+  }, [loggedInUser])
 
   const updateFrom = () => {
     fetch("http://localhost:8080/users", {
@@ -53,7 +63,9 @@ const MyProfile = () => {
       body: JSON.stringify({ aboutMe: aboutMe, userId: localStorage.getItem("userId") })
     })
       .then(response => response.json())
-      .then(data => dispatch(setUsers(data.users)))
+      .then(data => {
+        dispatch(updateUser(data.user));
+      })
   }
 
   const uploadPhoto = () => {
@@ -65,7 +77,9 @@ const MyProfile = () => {
       body: JSON.stringify({ userId: loggedInUser._id, photo: photo })
     })
       .then(response => response.json())
-      .then(data => dispatch(setUsers(data.users)))
+      .then(data => {
+        dispatch(updateUser(data.user));
+      })
   }
 
   const handleFrom = (event) => {
@@ -90,7 +104,8 @@ const MyProfile = () => {
   return (
     <div>
     <h1>My profile</h1>
-    <div className="myprofile-info-container">{users?.filter(u => u._id === localStorage.getItem("userId"))
+    <div className="myprofile-info-container">
+      {users?.filter(u => u._id === localStorage.getItem("userId"))
          .map(u => <div key={u._id}>
          <div>{u.username}</div>
          <div>{u.email}</div>
@@ -114,7 +129,7 @@ const MyProfile = () => {
     <button className="add-profile-info-button" onClick={updateAboutMe}>Add info to profile</button>
     </span> : <div>{loggedInUser.aboutMe}</div>}
     </div>
-    <Posts />
+    {loggedInUser && users && posts && <Posts />}
     </div>
   )
 }
