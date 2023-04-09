@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
 import Navbar from '../Navbar';
 import RequestNotification from './RequestNotification';
-import PokeNotification from './PokeNotification';
+import Poke from './Poke';
 
 const Notifications = () => {
 

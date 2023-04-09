@@ -27,5 +27,6 @@ app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
 app.use("/comments", commentsRouter);
 app.use("/chats", chatsRouter);
+app.use("/pokes", pokesRouter);
 
 module.exports = app;
