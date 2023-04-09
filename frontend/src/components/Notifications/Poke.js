@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoggedInUser } from '../../redux/usersSlice';
+import { setPokes, addPoke } from '../../redux/pokesSlice';
 
 const PokeNotification = () => {
 
@@ -12,13 +12,13 @@ const PokeNotification = () => {
 
   const [poked, setPoked] = useState(false);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8080/users")
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       dispatch(setLoggedInUser(data.users.find(u => u._id === localStorage.getItem("userId"))));
-  //     })
-  // }, [])
+  useEffect(() => {
+    fetch("http://localhost:8080/pokes")
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setPokes(data.pokes));
+      })
+  }, [])
 
   useEffect(() => {
     if (poked) {
@@ -30,7 +30,9 @@ const PokeNotification = () => {
       body: JSON.stringify({ pokerId: loggedInUser._id, pokeeId: selectedUser._id })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        dispatch(addPoke(data.poke));
+      })
     }
     console.log(loggedInUser._id);
     console.log(selectedUser._id);
