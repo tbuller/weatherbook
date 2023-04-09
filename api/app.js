@@ -9,6 +9,7 @@ const usersRouter = require("./routes/users");
 const postsRouter = require("./routes/posts");
 const commentsRouter = require("./routes/comments");
 const chatsRouter = require("./routes/chats");
+const pokesRouter = require("./routes/pokes");
 
 const app = express();
 app.use(fileUpload());
