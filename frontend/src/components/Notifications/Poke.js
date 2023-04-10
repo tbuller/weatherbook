@@ -8,7 +8,7 @@ const PokeNotification = () => {
   const dispatch = useDispatch();
   const loggedInUser = useSelector(state => state.users.loggedInUser);
   const selectedUser = useSelector(state => state.users.selectedUser);
-
+  const pokes = useSelector(state => state.pokes.pokes);
 
   const [poked, setPoked] = useState(false);
 
@@ -44,7 +44,7 @@ const PokeNotification = () => {
 
   return (
     <div>
-    <button onClick={handlePoke}>Poke</button>  
+    <button onClick={handlePoke}>{pokes.find(p => p.pokerId === loggedInUser._id && p.pokeeId === selectedUser._id) ? "Poked!" : "Poke"}</button>  
     </div>
   )
 }
