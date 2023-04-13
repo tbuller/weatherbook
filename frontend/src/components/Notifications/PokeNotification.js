@@ -7,6 +7,7 @@ const PokeNotification = () => {
 
   const dispatch = useDispatch();
   const pokes = useSelector(state => state.pokes.pokes);
+  const users = useSelector(state => state.users.users);
 
   useEffect(() => {
     fetch("http://localhost:8080/pokes")
