@@ -104,12 +104,12 @@ const MyProfile = () => {
   return (
     <div>
     <h1>My profile</h1>
-    <div className="myprofile-info-container">
+    <div>
       {users?.filter(u => u._id === localStorage.getItem("userId"))
-         .map(u => <div key={u._id} className="photo-and-username-container">
-         <div>{u.photo ? <img src={u.photo} className="profile-photo" /> : <img src="/blank-photo.webp" className="profile-photo" />}</div> 
-         <div>{u.username}</div>
-         <div>{u.email}</div>
+         .map(u => <div className="myprofile-info-container" key={u._id}>
+         <div>{u.photo ? <img src={u.photo} className="profile-photo myprofile-photo" alt="myprofile-photo" /> : <img src="/blank-photo.webp" className="profile-photo myprofile-photo" alt="myprofile-photo" />}</div> 
+         <div className="myprofile-username">{u.username}</div>
+         {/* <div>{u.email}</div> */}
          </div>
          )}
     </div>

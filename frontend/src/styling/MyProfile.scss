@@ -1,6 +1,18 @@
-// .my-profile-info-container {
-//   margin-bottom: 3em;
-// }
+.myprofile-info-container {
+  display: flex;
+  margin-left: 1em;
+}
+
+.myprofile-photo {
+  font-size: 3em;
+}
+
+.myprofile-username {
+  margin-top: 2.4em;
+  margin-left: 1em;
+  font-weight: bold;
+  font-size: 2em;
+}
 
 .add-profile-info-container {
 
