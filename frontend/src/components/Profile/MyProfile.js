@@ -106,7 +106,8 @@ const MyProfile = () => {
     <h1>My profile</h1>
     <div className="myprofile-info-container">
       {users?.filter(u => u._id === localStorage.getItem("userId"))
-         .map(u => <div key={u._id}>
+         .map(u => <div key={u._id} className="photo-and-username-container">
+         <div>{u.photo ? <img src={u.photo} className="profile-photo" /> : <img src="/blank-photo.webp" className="profile-photo" />}</div> 
          <div>{u.username}</div>
          <div>{u.email}</div>
          </div>
@@ -114,6 +115,7 @@ const MyProfile = () => {
     </div>
     <div className="add-profile-info-container">
     {!loggedInUser.photo ? <span className="add-photo-container">
+    <img src="/blank-photo.webp" className="profile-photo" />
     <label className="add-profile-info-label">Add an image</label>
     <input type="file" onChange={handlePhoto} /> 
     <button onClick={uploadPhoto}>Upload photo</button>    
