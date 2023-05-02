@@ -14,19 +14,22 @@
 }
 
 .post-container {
-  border: 3px solid black;
+  border: 2px solid #333;
   border-radius: 12px;
-  background-color: #FFCBA4;
+  background-color: #f2f2f2;
   width: 45%;
   margin: auto;
-  margin-bottom: 1%;
-  padding: 0.5%;
+  margin-bottom: 2em;
+  padding: 1em;
   animation: fadeIn 1s forwards;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  font-family: "Gill Sans", sans-serif;
 
   .first-line-container {
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-bottom: 1em;
     
     .profile-picture {
       font-size: 2rem;
@@ -34,6 +37,8 @@
     
     .username {
       font-weight: bold;
+      font-size: 1.5em;
+      color: #333;
     }
     
     .city {
@@ -43,18 +48,21 @@
       font-weight: bold;
 
       .location-icon {
-        font-size: 2em;
+        font-size: 1.6em;
         margin-right: 0.3em;
+        color: #4a90e2;
       }
     }
     
     .time {
       font-size: 0.8rem;
+      color: #888;
     }
   }
   
   .thoughts, .rain, .temperature, .precipitation, .windspeed, .radiation, .cloudcover, .posted-at {
     width: 100%;
+    margin-bottom: 0.5em;
   }
 
   .profile-photo {
@@ -63,6 +71,44 @@
     object-fit: cover;
     object-position: 50% 50%; 
     border-radius: 8em;
+    border: 2px solid #333;
+  }
+
+  .posted-at {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 1em;
+  }
+
+  .thoughts {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .rain-icon-post {
+    color: blue;
+  }
+
+  .temperature-icon-post {
+    color: #ff4d4d;
+  }
+
+  .precipitation-icon-post {
+    color: #3399ff;
+  }
+
+  .wind-icon-post {
+    color: gray;
+  }
+
+  .radiation-icon-post {
+    color: #ff9933;
+  }
+
+  .cloud-icon-post {
+    color: #999;
   }
 
 }
+

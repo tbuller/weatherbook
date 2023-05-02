@@ -5,15 +5,19 @@
   padding-top: 0.5%;
   padding-right: 1.2em;
   border-radius: 10px;
+  border: none;
+  background-color: #FFA726;
   transition: all 0.15s ease-out; 
 
   &:hover {
     cursor: pointer;
     transform: scale(1.05);
-    background-color: green;
+    background-color: #4a90e2;
+    color: white;
   }
 
   &.liked {
-    background-color: green;
+    background-color: #4a90e2;
+    color: white;
   }
 }

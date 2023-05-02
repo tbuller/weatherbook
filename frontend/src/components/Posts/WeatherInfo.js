@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPosts, addPost } from '../../redux/postsSlice';
-import { GiSunRadiations, GiWindsock } from 'react-icons/gi';
-import { FaWind, FaTemperatureHigh, FaThermometerHalf } from 'react-icons/fa';
+import { addPost } from '../../redux/postsSlice';
+import { GiSunRadiations } from 'react-icons/gi';
+import { FaWind, FaThermometerHalf } from 'react-icons/fa';
 import { SiRainmeter } from 'react-icons/si'
 import { BsCloudRainFill, BsCloudsFill } from 'react-icons/bs';
 import { RiAddCircleLine } from 'react-icons/ri';
