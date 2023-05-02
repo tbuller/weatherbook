@@ -1,0 +1,28 @@
+*html {
+  background-color: #4a90e2;
+}
+
+.all-profile-container {
+  height: 100vh;
+  background-color: #4a90e2;
+}
+
+.profile-toggle-button {
+  margin-top: 1em;
+  margin-left: 1em;
+  height: 3em;
+  width: 15em;
+  padding: 0.3em 1em;
+  background-color: #FFA726;
+  color: #fff;
+  font-size: 2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #2172c2;
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPokes, addPoke } from '../../redux/pokesSlice';
+import '../../styling/Poke.scss';
 
 const PokeNotification = () => {
 
@@ -43,8 +44,8 @@ const PokeNotification = () => {
   }
 
   return (
-    <div>
-    <button onClick={handlePoke}>{pokes.find(p => p.pokerId === loggedInUser._id && p.pokeeId === selectedUser._id) ? "Poked!" : "Poke"}</button>  
+    <div className="poke-container">
+    <button className="poke-button" onClick={handlePoke}>{pokes.find(p => p.pokerId === loggedInUser._id && p.pokeeId === selectedUser._id) ? "Poked!" : "Poke"}</button>  
     </div>
   )
 }

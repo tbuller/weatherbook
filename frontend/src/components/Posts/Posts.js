@@ -51,7 +51,7 @@ const Posts = () => {
       {post.windspeed && <div className="windspeed"><FaWind className="wind-icon-post" />Wind speed: {post.windspeed} km/h</div>}
       {post.radiation && <div className="radiation"><GiSunRadiations className="radiation-icon-post" />shortwave radiation: {post.radiation} W/m2</div>}
       {post.cloudcover && <div className="cloudcover"><BsCloudsFill className="cloud-icon-post" />cloud cover: {post.cloudcover}%</div>}
-      <div className="posted-at">Posted at: {post.postedAt}</div>
+      <div className="posted-at">Posted at: {`${new Date(post.postedAt).toLocaleDateString()} ${new Date(post.postedAt).toLocaleTimeString()}`}</div>
       <Comments postId={post._id} />
       <CommentsForm postId={post._id} />
       </div>

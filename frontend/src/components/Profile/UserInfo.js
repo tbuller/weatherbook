@@ -53,13 +53,13 @@ const UserInfo = () => {
   }
 
   return (
-    <div>
+    <div className="user-info-wrapper">
     {selectedUser && 
     <div className="user-info-container">
     <img className="profile-photo user-info-photo" src={selectedUser.photo || "/blank-photo.webp"} />
-    <div>{selectedUser.username}</div>
-    <div>{selectedUser.email}</div>
-    {selectedUser.friends?.includes(loggedInUser._id) ? <button>Friends</button> : selectedUser.requests?.includes(loggedInUser._id) ?  <button>Friend request sent</button> : loggedInUser.requests?.includes(selectedUser._id) ? <button onClick={() => acceptRequest(selectedUser._id)}>Accept request</button> : <button onClick={addConnection}>Connect with {selectedUser.username} <AiOutlinePlus className="plus-icon" /></button>}
+    <div className="user-info-username">{selectedUser.username}</div>
+    <div className="user-info-email">{selectedUser.email}</div>
+    {selectedUser.friends?.includes(loggedInUser._id) ? <button className="request-status-button">Friends</button> : selectedUser.requests?.includes(loggedInUser._id) ?  <button className="request-status-button">Friend request sent</button> : loggedInUser.requests?.includes(selectedUser._id) ? <button className="request-status-button" onClick={() => acceptRequest(selectedUser._id)}>Accept request</button> : <button className="request-status-button" onClick={addConnection}>Connect with {selectedUser.username} <AiOutlinePlus className="plus-icon" /></button>}
     </div>}
     <Poke />
     </div>

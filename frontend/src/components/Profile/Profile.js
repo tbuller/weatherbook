@@ -6,6 +6,7 @@ import { setPosts } from '../../redux/postsSlice';
 import Navbar from '../Navbar';
 import SearchBar from './SearchBar';
 import MyProfile from './MyProfile';
+import '../../styling/Profile.scss';
 
 const Profile = () => {
 
@@ -28,9 +29,9 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className="all-profile-container">
     <Navbar /> 
-    <button onClick={handleProfileClick}>Switch</button> 
+    <button className="profile-toggle-button" onClick={handleProfileClick}>{viewMyProfile ? "Search for friends" : "Go back to my profile"}</button> 
     {viewMyProfile ? <MyProfile /> : <SearchBar />}
     </div>
   )

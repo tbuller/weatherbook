@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUsers, updateUser } from '../../redux/usersSlice';
 import { setComments } from '../../redux/commentsSlice';
 import { setPosts } from '../../redux/postsSlice';
+import { CiLocationOn } from 'react-icons/ci';
 import Posts from '../Posts/Posts';
 import '../../styling/MyProfile.scss';
 
@@ -102,31 +103,29 @@ const MyProfile = () => {
   }
   
   return (
-    <div>
-    <h1>My profile</h1>
+    <div className="myprofile-container">
+    <h1 className="myprofile-header">My profile</h1>
     <div>
       {users?.filter(u => u._id === localStorage.getItem("userId"))
          .map(u => <div className="myprofile-info-container" key={u._id}>
          <div>{u.photo ? <img src={u.photo} className="profile-photo myprofile-photo" alt="myprofile-photo" /> : <img src="/blank-photo.webp" className="profile-photo myprofile-photo" alt="myprofile-photo" />}</div> 
          <div className="myprofile-username">{u.username}</div>
-         {/* <div>{u.email}</div> */}
          </div>
          )}
     </div>
     <div className="add-profile-info-container">
     {!loggedInUser.photo ? <span className="add-photo-container">
-    <img src="/blank-photo.webp" className="profile-photo" />
     <label className="add-profile-info-label">Add an image</label>
-    <input type="file" onChange={handlePhoto} /> 
-    <button onClick={uploadPhoto}>Upload photo</button>    
-    </span> : <img src={loggedInUser.photo} alt="profile-photo" className="profile-photo" />}  
+    <input className="choose-image-input" type="file" onChange={handlePhoto} /> 
+    <button className="add-profile-info-button" onClick={uploadPhoto}>Upload photo</button>    
+    </span> : <div></div>}  
     {!loggedInUser.from ? <span className="from-container">
     <label className="add-profile-info-label">Tell others where you are from</label>  
     <input className="add-profile-info-input-from" type="text" onChange={handleFrom} />
     <button className="add-profile-info-button" onClick={updateFrom}>Add info to profile</button>
-    </span> : <div>{loggedInUser.from}</div>}
+    </span> : <div className="from-text"><CiLocationOn className="profile-location-icon" />{loggedInUser.from}</div>}
     {!loggedInUser.aboutMe ? <span className="aboutme-container">
-    <label className="add-profile-info-label">Add some more information about yourself</label>
+    <label className="add-profile-info-label">Tell others about yourself</label>
     <input className="add-profile-info-input-aboutme" type="text" onChange={handleAboutMe} />
     <button className="add-profile-info-button" onClick={updateAboutMe}>Add info to profile</button>
     </span> : <div className="about-me-text">{loggedInUser.aboutMe}</div>}

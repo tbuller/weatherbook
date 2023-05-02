@@ -35,21 +35,16 @@ const SearchBar = () => {
     setSearchTerm("");
   }
 
-  const showLoggedIn = () => {
-    console.log(loggedInUser);
-  }
-
   return (
     <div className="search-bar-container">
     <h1 className="search-prompt">Find friends:</h1>
-    <button onClick={showLoggedIn}>show logged in</button>
     <input className="search-bar" type="text" onChange={handleSearch} />
     {searchTerm.length > 0 && (
       <ul>
           {users.filter(u => u.username.toLowerCase().includes(searchTerm.toLowerCase()))
           .slice(0, 5)
           .map(i => (
-            <li key={i._id} onClick={() => handleUserSelection(i._id)}>{i.username}</li>
+            <li key={i._id} onClick={() => handleUserSelection(i._id)}>{i.photo ? <img src={i.photo} className="profile-photo myprofile-photo" alt="myprofile-photo" /> : <img src="/blank-photo.webp" className="profile-photo myprofile-photo" alt="myprofile-photo" />}{i.username}</li>
           ))
           }
       </ul>
