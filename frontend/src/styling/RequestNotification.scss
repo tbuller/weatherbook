@@ -1,44 +1,74 @@
+.request-notification-page-container {
+  padding: 2em;
+}
+
 .request-container {
   display: flex;
+  align-items: center;
+  gap: 1em;
   width: 50%;
-  margin-left: 2%;
-  margin-bottom: 1%;
+  margin-bottom: 1em;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  background-color: rgba(135, 206, 235, 0.2);
+  transition: background-color 0.2s ease-in-out;
+
   &:hover {
-    background-color: gray;
+    background-color: rgba(135, 206, 235, 0.4);
   }
 }
 
 .profile-photo {
   width: 4em !important;
-  height: 4em !important;  
+  height: 4em !important;
   object-fit: cover;
-  object-position: 50% 50%; 
+  object-position: 50% 50%;
   border-radius: 8em;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 .requester-username {
-  margin-left: 2%;
-  margin-top: 1.1em;
   font-size: 1.2em;
   font-weight: bold;
+  cursor: pointer;
+  color: white;
+  transition: color 0.2s ease-in-out;
+
   &:hover {
     text-decoration: underline;
-    cursor: pointer;
-    color: blue;
+    color: #1e90ff;
   }
 }
 
 .accept-request-button {
-  margin-left: auto;
-  margin-right: 10%;
-  margin-top: 0.9em;
-  height: 3em;
-  width: 15%;
+  position: absolute;
+  right: 50%;
+  background-color: #4a90e2;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
   &:hover {
-    cursor: pointer;
-    background-color: rgb(38, 112, 201);
+    background-color: #2172c2;
+  }
+}
+
+.go-back-button {
+  background-color: #FFA726;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-bottom: 2em;
+
+  &:hover {
+    background-color: #2172c2;
   }
 }

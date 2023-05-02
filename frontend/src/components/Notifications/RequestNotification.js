@@ -65,7 +65,7 @@ const RequestNotification = () => {
       })}      
     </div> : 
     <div>
-    <button onClick={goBack}>Go back to notifications</button>
+    <button className="go-back-button" onClick={goBack}>Go back to notifications</button>
     <UserInfo />  
     </div>
     }

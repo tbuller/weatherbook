@@ -5,6 +5,7 @@ import { setUsers, setLoggedInUser } from '../../redux/usersSlice';
 import Navbar from '../Navbar';
 import RequestNotification from './RequestNotification';
 import Poke from './Poke';
+import '../../styling/Notifications.scss'
 
 const Notifications = () => {
 
@@ -26,11 +27,10 @@ const Notifications = () => {
   }
 
   return (
-    <div>
+    <div className="notifications-page-container">
     <Navbar />
-    <div>
+    <div className="notifications-container">
     {loggedInUser && loggedInUser?.requests?.length > 0 && <RequestNotification />}  
-    <button onClick={showLoggedIn}>show logged in</button>
     </div>
     </div>
   )

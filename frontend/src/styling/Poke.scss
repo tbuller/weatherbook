@@ -1,0 +1,20 @@
+.poke-container {
+  margin-top: 1em;
+  margin-left: 0.6em;
+}
+
+.poke-button {
+  width: auto;
+  padding: 0.3em 1em;
+  background-color: #FFA726;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #2172c2;
+  }
+}
