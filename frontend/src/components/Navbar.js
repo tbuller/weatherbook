@@ -24,6 +24,7 @@ const Navbar = () => {
 
   return (
   <span className="navbar-container">
+  <button className="log-out-nav-button" onClick={() => navigate("/")}>Log out</button>
   <button className={currentPage === "myhome" ? "nav-selected" : "nav-myhome"} onClick={() => navigate("/myhome")}>Home</button>
   <button className={currentPage === "profile" ? "nav-selected" : "nav-profile"} onClick={() => navigate("/profile")}>Profile</button>
   <button className={currentPage === "notifications" ? "nav-selected" : "nav-notifications"} onClick={() => navigate("/notifications")}>Notifications</button>

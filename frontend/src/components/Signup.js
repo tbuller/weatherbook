@@ -34,7 +34,7 @@ const Signup = ({ navigate }) => {
         if (data.message === "OK") {
           console.log("success");
           dispatch(addUser(data.user));
-          // navigate("/login");
+          navigate("/login");
         } else if (data.message === "email already in use") {
           setUsernameDuplicate(false);
           setEmailDuplicate(true);

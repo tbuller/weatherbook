@@ -35,3 +35,22 @@ li:hover {
   background-color: #ddd;
   cursor: pointer;
 }
+
+.search-item {
+  display: flex;
+  align-items: center;
+}
+
+.search-username {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-left: 0.5em;
+}
+
+.profile-photo.myprofile-photo {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}

@@ -44,7 +44,12 @@ const SearchBar = () => {
           {users.filter(u => u.username.toLowerCase().includes(searchTerm.toLowerCase()))
           .slice(0, 5)
           .map(i => (
-            <li key={i._id} onClick={() => handleUserSelection(i._id)}>{i.photo ? <img src={i.photo} className="profile-photo myprofile-photo" alt="myprofile-photo" /> : <img src="/blank-photo.webp" className="profile-photo myprofile-photo" alt="myprofile-photo" />}{i.username}</li>
+            <li key={i._id} onClick={() => handleUserSelection(i._id)}>
+              <div className="search-item">
+              {i.photo ? <img src={i.photo} className="profile-photo myprofile-photo" alt="myprofile-photo" /> : <img src="/blank-photo.webp" className="profile-photo myprofile-photo" alt="myprofile-photo" />}
+              <span className="search-username">{i.username}</span>
+              </div>
+            </li>
           ))
           }
       </ul>
