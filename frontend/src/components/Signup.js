@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUsers, addUser } from '../redux/usersSlice';
+import '../styling/Signup.scss';
 
 const Signup = ({ navigate }) => {
 
@@ -58,24 +59,18 @@ const Signup = ({ navigate }) => {
     setUsername(event.target.value);
   }
 
-  const showUsers = () => {
-    console.log(users);
-  }
-
   return (
-    <div>
-    <h1>Welcome to the sign up page.</h1>
-    <label>Email:</label>
-    <input type="text" onChange={handleEmail} />
-    <label>Password:</label>
-    <input type="password" onChange={handlePassword} />
-    <label>Username:</label>
-    <input type="text" onChange={handleUsername} />
-    <button onClick={createUser}>Sign up</button>
-    {emailDuplicate && <div>email already used to sign up, please log in to continue</div>}
-    {usernameDuplicate && <div>username already is use, please choose another username or log in if you have already created an account</div>}
-    {users && users.map(u => <div key={u._id}>{u.username}</div>)}
-    <button onClick={showUsers}>show users</button>
+    <div className="sign-up-page-container">
+    <h1 className="signup-welcome">Sign up</h1>
+    <label className="signup-page-label">Email:</label>
+    <input className="signup-page-input" type="text" onChange={handleEmail} />
+    <label className="signup-page-label">Password:</label>
+    <input className="signup-page-input" type="password" onChange={handlePassword} />
+    <label className="signup-page-label">Username:</label>
+    <input className="signup-page-input" type="text" onChange={handleUsername} />
+    <button className="signup-page-button" onClick={createUser}>Sign up</button>
+    {emailDuplicate && <div className="duplicate-email-warning">email already in use, please log in to continue</div>}
+    {usernameDuplicate && <div className="duplicate-username-warning">username already is use, please choose another username or log in if you have already created an account</div>}
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { setUsers } from '../redux/usersSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import '../styling/Login.scss';
 
 const Login = ({ navigate }) => {
 
@@ -38,21 +39,15 @@ const Login = ({ navigate }) => {
     }
   }
 
-  const showUsers = () => {
-    console.log(users);
-  }
-
   return (
-    <div>
-    <h1>Welcome to the login page</h1>
-    <label>Email:</label>
-    <input type="text" onChange={handleEmail} />
-    <label>Password:</label>
-    <input type="password" onChange={handlePassword} />
-    <button onClick={handleLogin}>Log in</button>
-    {incorrect && <div>Wrong username or password, please try again or sign up</div>}
-    {users && users.map(u => <div key={u._id}>{u.username}</div>)}
-    <button onClick={showUsers}>show users</button>
+    <div className="login-page-container">
+    <h1 className="login-page-welcome">Log in</h1>
+    <label className="login-page-label">Email:</label>
+    <input className="login-page-input" type="text" onChange={handleEmail} />
+    <label className="login-page-label">Password:</label>
+    <input className="login-page-input" type="password" onChange={handlePassword} />
+    <button className="login-page-button" onClick={handleLogin}>Log in</button>
+    {incorrect && <div className="incorrect-info-warning">Wrong username or password, please try again or sign up</div>}
     </div>
   )
 }
