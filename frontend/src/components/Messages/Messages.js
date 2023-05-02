@@ -60,15 +60,12 @@ const Messages = () => {
     setChosenFriend(event.target.value);
   }
 
-  const showSelected = () => {
-    console.log(chosenFriend);
-  }
-
   return (
     <div className="message-page-container">
     <Navbar />
     <div className="main-container">
-    <select id="users" value={chosenFriend} onChange={handleSelection}>
+    <div className="user-select-container">
+    <select className="messages-page-user-select" id="users" value={chosenFriend} onChange={handleSelection}>
     {loggedInUser && loggedInUser.friends.map(f => {
       const friendObject = users.find(u => u._id === f);
       return (
@@ -77,8 +74,8 @@ const Messages = () => {
     }
       )}  
     </select>
-    <button onClick={createChat}>Create chat</button>
-    <button onClick={showSelected}>show</button>
+    <button className="create-chat-button" onClick={createChat}>Create chat</button>
+    </div>
     <div className="chat-area-container">
     <SideBar />
     <Chat />

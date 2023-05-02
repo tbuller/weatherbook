@@ -1,28 +1,30 @@
 .sidebar-container {
   width: 20%;
-  margin-top: 2em;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
 
-.individual-chat {
-  display: flex;
-  width: 100%;
-  border-bottom: 1px solid black;
-  &:hover {
-    background-color: gray;
-    cursor: pointer;
-  }
-}
-
+.individual-chat,
 .individual-selected-chat {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid black;
-  background-color: green;
-  &:hover {
-    cursor: pointer;
-  }
+  border-bottom: 1px solid #ccc;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+.individual-chat:hover {
+  background-color: #e5e5e5;
+  cursor: pointer;
+}
+
+.individual-selected-chat {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+.individual-selected-chat:hover {
+  cursor: pointer;
 }
 
 .chat-profile-photo-container {
@@ -44,5 +46,6 @@
 
 .chat-other-user-username {
   margin-left: 10%;
-  margin-top: 1.7em;
+  margin-top: 1.3em;
+  font-weight: bold;
 }

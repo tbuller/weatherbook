@@ -33,11 +33,6 @@ const Chat = () => {
     setMessageContent(event.target.value);
   }
 
-  const show = () => {
-    console.log(messageContent);
-    console.log(chats);
-  }
-
   return (
     <div className="chats-container">
     <div className="messages-container">
@@ -45,9 +40,10 @@ const Chat = () => {
       return m.senderId === loggedInUser._id ? <div className="sent-message" key={Math.random()}>{m.messageContent}</div> : <div className="received-message" key={Math.random()}>{m.messageContent}</div>
     })}  
     </div>
+    <div className="chat-input-send-container">
     <input className="chat-input-field" type="text" onChange={handleMessageContent} />
-    <button onClick={sendMessage}>send</button>
-    <button onClick={show}>show</button>
+    <button className="send-message-button" onClick={sendMessage}>send</button>
+    </div>
     </div>
   )
 }
