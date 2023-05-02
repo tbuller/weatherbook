@@ -74,10 +74,10 @@ const WeatherInfo = ({ rain, temperature, precipitation, windspeed, radiation, c
   }
 
   return (
-    <div className="post-form-container">
-    <div>
-    <label>Share your thoughts:</label>  
-    <input type="text" onChange={handleThoughts} />
+    <div className="post-form-info-container">
+    <div className="post-form-info-wrapper">
+    <label className="share-thoughts-label">Share your thoughts:</label>  
+    <input className="share-thoughts-input" type="text" onChange={handleThoughts} />
     </div>
     <div className="info-container">
     <span className="weather-metric">

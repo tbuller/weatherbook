@@ -16,6 +16,8 @@ const MyHome = ({ navigate }) => {
   const posts = useSelector(state => state.posts.posts);
   const comments = useSelector(state => state.comments.comments);
 
+  const [showPostForm, setShowPostForm] = useState(false);
+
   useEffect(() => {
     fetch("http://localhost:8080/users")
       .then(response => response.json())
@@ -37,19 +39,17 @@ const MyHome = ({ navigate }) => {
       .then(data => dispatch(setComments(data.comments)))
   }, [])
 
-  const showComments = () => {
-    console.log(users);
-    console.log(comments);
-    console.log(posts);
+  const handleShowFormClick = () => {
+    setShowPostForm(!showPostForm);
   }
 
   return (
     <div className="myhome-page">
     <Navbar />
     <div className="myhome-container">
-    <h1>Welcome to your home page</h1>
-    <button onClick={showComments}>Show comments</button>
-    <PostForm />
+    <h1 className="myhome-welcome">Home</h1>
+    <button className="post-form-toggle-button" onClick={handleShowFormClick}>{showPostForm ? "Hide post form" : "Click here to create a post"}</button>
+    {showPostForm && <PostForm />}
     <Posts />
     </div>
     </div>

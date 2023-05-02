@@ -1,3 +1,30 @@
+.myhome-page {
+  background-color: #4a90e2;
+}
+
 .myhome-container {
   margin-left: 0.5%;
+}
+
+.myhome-welcome {
+  color: white;
+  font-size: 3.5em;
+}
+
+.post-form-toggle-button {
+  background-color: #FFA726;
+  color: #ffffff;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
+  font-size: 1.8em;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1em 0;
+  width: 20%;
+  transition: transform 0.15s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.03);
+  }
 }

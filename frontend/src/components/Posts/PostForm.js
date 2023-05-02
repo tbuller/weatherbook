@@ -20,6 +20,7 @@ const PostForm = () => {
   const isFirstRender = useRef(true);
 
   useEffect(() => {
+    console.log(selectedDay);
     fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity}`) 
       .then(response => response.json())
       .then(data => {
@@ -31,7 +32,7 @@ const PostForm = () => {
 
   useEffect(() => {
     if (isFirstRender.current) {
-      isFirstRender.current = false;
+      isFirstRender.current = false;      
       return;
     }
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m,precipitation_probability,precipitation,rain,windspeed_10m,shortwave_radiation_instant,cloudcover&forecast_days=7`)
@@ -40,14 +41,15 @@ const PostForm = () => {
   }, [lat, long])
 
   useEffect(() => {
+    console.log(weatherData);
     setStartIndex(selectedDay * 24);
     setEndIndex((selectedDay * 24) + 24);
-    setTimeIndex(0 + (selectedDay * 24))
+    setTimeIndex(0 + (selectedDay * 24));
   }, [selectedDay])
 
   useEffect(() => {
     setHoursToDisplay(weatherData.time?.slice(startIndex, endIndex));
-  }, [startIndex, endIndex])
+  }, [startIndex, endIndex, weatherData])
 
   const handleSelectedCity = (event) => {
     setSelectedCity(event.target.value);
@@ -78,15 +80,21 @@ const PostForm = () => {
   ))
 
   return (
-    <div>
-    <h1>Your post content here</h1>
-    <select id="cities" value={selectedCity} onChange={handleSelectedCity}>
+    <div className="post-form-container">
+    <h1 className="post-form-prompt">Create a post!</h1>
+    <label className="post-form-label">Select a city:</label>
+    <select className="post-form-select" id="cities" value={selectedCity} onChange={handleSelectedCity}>
       <option value="">Choose a city</option>
       <option value="Paris">Paris</option>
       <option value="London">London</option>
       <option value="New York City">New York City</option>
       <option value="Manchester">Manchester</option>
       <option value="Rome">Rome</option>
+      <option value="Birmingham">Birmingham</option>
+      <option value="Newcastle">Newcastle</option>
+      <option value="Madrid">Madrid</option>
+      <option value="Casablanca">Casablanca</option>
+      <option value="Liverpool">Liverpool</option>
     </select>
     <div>{dayButtons}</div>
     {hoursToDisplay && hoursToDisplay?.map((time, index) => 

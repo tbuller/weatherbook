@@ -1,33 +1,58 @@
 .post-form-container {
   margin-top: 2em;
   margin-bottom: 1%;
-  background-color: orange;
+  background-color: #FFA726;
   padding: 0.5%;
   border-radius: 20px;
-  font-family: "Gill Sans Extrabold", sans-serif;
+  font-family: "Gill Sans", sans-serif;
+}
+
+.post-form-prompt {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 1em;
+  color: #ffffff;
+}
+
+.post-form-label {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  color: #ffffff;
+}
+
+.post-form-select {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border: none;
+  border-radius: 0.3em;
+  background-color: #ffffff;
 }
 
 .time-button {
-  margin-left: 0.5%;
+  margin: 0.5%;
   width: 3%;
-  background-color: orange;
   color: white;
-  border-color: orange;
-  border-radius: 12px;
+  border: none;
+  background-color: #FFA726;
+  border-radius: 0.2em;
   font-size: 1vw;
   font-family: 'Droid Serif', serif;
+  font-weight: bold;
   transition: all 0.15s ease-in-out;
-  
+
   &:hover {
-    background-color: green;
-    border-color: green;
+    background-color: #4a90e2;
+    border-color: #4a90e2;
     transform: scale(1.1);
     cursor: pointer;
   }
 
   &.selected {
-    background-color: green;
-    border-color: green;
+    background-color: #4a90e2;
+    border-color: #4a90e2;
   }
 }
 
@@ -36,16 +61,21 @@
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 1em;
-  background-color: rgb(51, 51, 155);
+  background-color: #FFA726;
   color: white;
   font-family: "Gill Sans", sans-serif;
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  transition: all 0.15s ease-in-out;
 
   &:hover {
-    cursor: pointer;  
-    background-color: green;
+    cursor: pointer;
+    background-color: #4a90e2;
   }
 
   &.selected {
-    background-color: green;
+    background-color: #4a90e2;
   }
 }
