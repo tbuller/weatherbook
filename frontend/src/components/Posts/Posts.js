@@ -45,9 +45,9 @@ const Posts = () => {
       <div className="time">{formatDate(post.time)}</div>
       </div>
       <div className="thoughts">{post.thoughts}</div>
-      {post.rain !== null && <div className="rain"><SiRainmeter className="rain-icon-post" />Rain: {post.rain}mm</div>}
+      {(post.rain || post.rain === 0) && <div className="rain"><SiRainmeter className="rain-icon-post" />Rain: {post.rain}mm</div>}
       {post.temperature && <div className="temperature"><FaThermometerHalf className="temperature-icon-post" />Temperature: {post.temperature}°C</div>}
-      {post.precipitation && <div className="precipitation"><BsCloudRainFill className="precipitation-icon-post" />Precipitation probability: {post.precipitation}%</div>}
+      {(post.precipitation || post.precipitation === 0) && <div className="precipitation"><BsCloudRainFill className="precipitation-icon-post" />Precipitation probability: {post.precipitation}%</div>}
       {post.windspeed && <div className="windspeed"><FaWind className="wind-icon-post" />Wind speed: {post.windspeed} km/h</div>}
       {post.radiation && <div className="radiation"><GiSunRadiations className="radiation-icon-post" />shortwave radiation: {post.radiation} W/m2</div>}
       {post.cloudcover && <div className="cloudcover"><BsCloudsFill className="cloud-icon-post" />cloud cover: {post.cloudcover}%</div>}
