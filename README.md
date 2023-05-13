@@ -1,8 +1,8 @@
 # Weatherbook
 
-A social media application designed for complaining about, discussing and occasionally celebrating the weather!
+Click on the image below for a quick demo (please excuse the bad quality from YouTube)
 
-Built using a MERN stack with Redux, it contains many features of popular social media applications.
+[![Demo link](https://img.youtube.com/vi/yCt4OlxP7xI/0.jpg)](https://www.youtube.com/watch?v=yCt4OlxP7xI)
 
 # Tech Stack
 
@@ -15,7 +15,7 @@ Built using a MERN stack with Redux, it contains many features of popular social
 
 # Spec
 
-Weatherbook is a full-stack social media application, centred around the exhilirating world of weather-related discourse. It enables users to share specific data points and express their thoughts about various weather conditions. Other users can engage in these discussions through comments and likes. The application allows users to send and accept friend requests, and the built-in search functionality makes it easy to explore other profiles. Users can personalise their own profiles, including their profile photo. Additionally, the application features private messaging, enabling users to have individual chats with different users.
+Weatherbook is a full-stack social media application, centred around the exhilirating world of weather-related discourse. It allows users to share specific data points and express their thoughts about various weather conditions. Other users can engage in these discussions through comments and likes. The application allows users to send and accept friend requests, and the built-in search functionality makes it easy to explore other profiles. Users can personalise their own profiles, including their profile photo. Additionally, the application features private messaging, enabling users to have individual chats with different users.
 
 # Installation
 
