@@ -18,3 +18,23 @@ Built using a MERN stack with Redux, it contains many features of popular social
 
 Weatherbook is a full-stack social media application, centred around the exhilirating world of weather-related discourse. It enables users to share specific data points and express their thoughts about various weather conditions. Other users can engage in these discussions through comments and likes. The application allows users to send and accept friend requests, and the built-in search functionality makes it easy to explore other profiles. Users can personalise their own profiles, including their profile photo. Additionally, the application features private messaging, enabling users to have individual chats with different users.
 
+# Installation
+
+[Clone this repo](https://github.com/tbuller/weatherbook.git)
+
+In terminal (Mac), run:
+
+```
+cd api
+npm install
+npm start
+```
+Open another terminal in the same codebase:
+```
+cd frontend
+npm install
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
+
