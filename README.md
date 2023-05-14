@@ -2,11 +2,11 @@
 <div>
 
 <h5 align="center">
-<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Demo'> Demo </a> <span> · </span>  
-<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Tech Stack'> Tech Stack </a> <span> · </span>
-<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Spec'> Spec </a> <span> · </span>
-<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Installation'> Installation </a><span> · </span>
-<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Features'> Running locally</a>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Demo'> Demo </a> <span> · </span>  
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Tech'> Tech </a> <span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Spec'> Spec </a> <span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Installation'> Installation </a><span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Features'> Features </a>
 <h5>
 </div>
   
@@ -16,7 +16,7 @@ Click on the image below for a quick demo (please excuse the bad quality from Yo
 
 [![Demo link](https://img.youtube.com/vi/yCt4OlxP7xI/0.jpg)](https://www.youtube.com/watch?v=yCt4OlxP7xI)
 
-# Tech Stack
+# Tech
 
 ![Image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Image](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
