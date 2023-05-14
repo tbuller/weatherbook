@@ -41,5 +41,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app in your brow
 
 ## Home page
 
+The homepage presents users with a feed of posts, their own and those from friends, arranged in chronological order. A collapsible form allows for the creation of posts, disappearing once the user has clicked "Post!". In addition to sharing thoughts on weather conditions, users can select specific data points to include in their posts. The process begins when a city is chosen, triggering an API call that fetches the city's coordinates. These coordinates then feed into another API call to a different web API, which provides the projected weather for the upcoming week. Users are also able to comment on posts, as well as like comments. All of this data is stored in the database, and the responses from the database are used to update the components with Redux.
+
 ![Image](https://github.com/tbuller/weatherbook/blob/main/frontend/public/README_images/Weatherbook-homepage-screenshot.png)
 
