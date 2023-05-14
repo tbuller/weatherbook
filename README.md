@@ -45,3 +45,27 @@ The homepage presents users with a feed of posts, their own and those from frien
 
 ![Image](https://github.com/tbuller/weatherbook/blob/main/frontend/public/README_images/Weatherbook-homepage-screenshot.png)
 
+## Profile
+
+When users select the profile tab, they are presented with their personal details along with all of their posts to date. Here, users can update their profile, which includes uploading photos and writing about themselves.
+
+![Image](https://github.com/tbuller/weatherbook/blob/main/frontend/public/README_images/Weatherbook-profile-screenshot.png)
+
+## Friends search
+
+As a user begins typing, a drop-down menu reveals a list of matching user profiles. Selecting a profile from this list brings up additional information about that particular user. If the selected user is not already in the friends array of the logged in user, there is the option to send them a friend request. Otherwise, it will show that the user is already a friend, or that a request has been sent (from either the logged in user or the selected user).
+
+![Image](https://github.com/tbuller/weatherbook/blob/main/frontend/public/README_images/Weatherbook-find-friends-screenshot.png)
+
+## Notifications
+
+In the notifications tab, the logged in user can see all of the friend requests that have been sent by other users. On accepting a request, a new friend is created in the database and the response from the API is used to update the button, showing that the request has been accepted.
+
+![Image](https://github.com/tbuller/weatherbook/blob/main/frontend/public/README_images/Weatherbook-notifications-screenshot.png)
+
+## Chat
+
+In the Messages tab, users have a chat feature. Users are able to create as many chats as they would like with users that are in their friends array. Users can select a chat, which will display all of the messages sent by both users involved, and give the logged in user the oppotunity to add more to send more messages.
+
+![Image](https://github.com/tbuller/weatherbook/blob/main/frontend/public/README_images/Weatherbook-chats-screenshot.png)
+
