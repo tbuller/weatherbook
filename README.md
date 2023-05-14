@@ -50,6 +50,15 @@ npm start
 Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
 # Features
+  
+<h5 align="center">
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Friends Search'> Friends Search </a> <span> · </span>  
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Tech'> Tech </a> <span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Spec'> Spec </a> <span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Installation'> Installation </a><span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Features'> Features </a>
+<h5>
+</div>
 
 ## Home page
 
