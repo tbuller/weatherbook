@@ -52,15 +52,15 @@ Open [http://localhost:3000](http://localhost:3000) to view the app in your brow
 # Features
   
 <h5 align="center">
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Friends Search'> Friends Search </a> <span> · </span>  
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Tech'> Tech </a> <span> · </span>
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Spec'> Spec </a> <span> · </span>
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Installation'> Installation </a><span> · </span>
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Features'> Features </a>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Home-page'> Home-page </a> <span> · </span> 
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Profile'> Profile </a> <span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Friends-search'> Friends-search </a> <span> · </span> 
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Notifications'> Notifications </a> <span> · </span>  
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Chat'> Chat </a>
 <h5>
 </div>
 
-## Home page
+## Home-page
 
 The homepage presents users with a feed of posts, their own and those from friends, arranged in chronological order. A collapsible form allows for the creation of posts, disappearing when the user hides the form, or once the user has clicked "Post!". In addition to sharing thoughts on weather conditions, users can select specific data points to include in their posts. The process begins when a city is chosen, triggering an API call that fetches the city's coordinates. These coordinates then feed into another API call to a different web API, which provides the projected weather for the upcoming week. Users are also able to comment on posts, as well as like comments. All of this data is stored in the database, and the responses from the database are used to update the components with Redux.
 
@@ -72,7 +72,7 @@ When users select the profile tab, they are presented with their personal detail
 
 ![Image](https://github.com/tbuller/weatherbook/blob/main/frontend/public/README_images/Weatherbook-profile-screenshot.png)
 
-## Friends search
+## Friends-search
 
 As a user begins typing, a drop-down menu reveals a list of matching user profiles. Selecting a profile from this list brings up additional information about that particular user. If the selected user is not already in the friends array of the logged in user, there is the option to send them a friend request. Otherwise, it will show that the user is already a friend, or that a request has been sent (from either the logged in user or the selected user).
 
