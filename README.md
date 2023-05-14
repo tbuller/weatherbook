@@ -39,5 +39,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app in your brow
 
 # Features
 
-## Create a post
+## Home page
+
+![Image](https://github.com/tbuller/weatherbook/blob/main/frontend/public/README_images/Weatherbook-homepage-screenshot.png)
 
