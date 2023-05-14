@@ -1,4 +1,16 @@
 # Weatherbook
+<div>
+
+<h5 align="center">
+<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Demo'> Demo </a> <span> · </span>  
+<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Tech Stack'> Tech Stack </a> <span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Spec'> Spec </a> <span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Installation'> Installation </a><span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/frontend/public/README.md#Features'> Running locally</a>
+<h5>
+</div>
+  
+# Demo  
 
 Click on the image below for a quick demo (please excuse the bad quality from YouTube)
 
