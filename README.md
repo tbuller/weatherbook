@@ -52,11 +52,11 @@ Open [http://localhost:3000](http://localhost:3000) to view the app in your brow
 # Features
   
 <h5 align="center">
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Home-page'> Home-page </a> <span> · </span> 
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Profile'> Profile </a> <span> · </span>
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Friends-search'> Friends-search </a> <span> · </span> 
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Notifications'> Notifications </a> <span> · </span>  
-<a href='https://github.com/tbuller/weatherbook/blob/main/README.md##Chat'> Chat </a>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Home-page'> Home-page </a> <span> · </span> 
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Profile'> Profile </a> <span> · </span>
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Friends-search'> Friends-search </a> <span> · </span> 
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Notifications'> Notifications </a> <span> · </span>  
+<a href='https://github.com/tbuller/weatherbook/blob/main/README.md#Chat'> Chat </a>
 <h5>
 </div>
 
